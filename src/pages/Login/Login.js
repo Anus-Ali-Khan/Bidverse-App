@@ -1,5 +1,8 @@
 import React from "react";
 import Input from "../../components/input";
+import { MdFacebook } from "react-icons/md";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { AiFillGoogleCircle } from "react-icons/ai";
 
 const Login = () => {
   return (
@@ -34,6 +37,28 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <p>or you can join with</p>
+        <div className="icons flex gap-4  ">
+          <div className="socialmedia bg-white ">
+            <a href="#">
+              <MdFacebook className="f-icon h-8 w-8 text-blue-700 " />
+            </a>
+          </div>
+          <div className="socialmedia">
+            <a href="#">
+              <AiFillTwitterCircle className="t-icon h-8 w-8 text-sky-500" />
+            </a>
+          </div>
+          <div className="socialmedia">
+            <a href="#">
+              <img
+                src="/src/assets/google-icon-2048x2048-czn3g8x8.png"
+                className="g-icon h-8 w-8"
+              />
+              {/* <AiFillGoogleCircle className="g-icon h-8 w-8" /> */}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
