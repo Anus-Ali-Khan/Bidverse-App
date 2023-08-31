@@ -2,11 +2,15 @@ import React from "react";
 import Input from "../../components/input";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { AiFillGoogleCircle } from "react-icons/ai";
+// import { AiFillGoogleCircle } from "react-icons/ai";
 
 const Login = () => {
   return (
     <div className="h-screen flex justify-center items-center">
+      <img
+        src="/src/assets/creative-web-homepage-illustration/6495319.jpg"
+        alt="side Image"
+      />
       <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950">
         <form className="login-container flex gap-5 flex-col items-center">
           <h1 className="">Welcome Back :)</h1>
@@ -18,11 +22,13 @@ const Login = () => {
             </span>
           </p>
           <Input />
-          <div className="flex items-end">
-            <input type="checkbox" />
-            <p>Remember me</p>
-            <div>
-              <p>Forgot Password?</p>
+          <div className="flex justify-end items-end">
+            <div className="flex">
+              <input type="checkbox" />
+              <p>Remember me</p>
+              <div>
+                <p>Forgot Password?</p>
+              </div>
             </div>
           </div>
           <div className="btns flex gap-5 w-1/2">
