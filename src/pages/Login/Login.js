@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div className="h-screen flex justify-center items-center">
       <img
-        src="/src/assets/creative-web-homepage-illustration/6495319.jpg"
+        src={require("../../assets/creative-web-homepage-illustration/6495319.jpg")}
         alt="side Image"
       />
       <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950">
@@ -55,7 +55,7 @@ const Login = () => {
               <AiFillTwitterCircle className="t-icon h-8 w-8 text-sky-500" />
             </a>
           </div>
-          <div className="socialmedia">
+          <div className="socialmedia h-8 w-8">
             <a href="#">
               <img
                 src="/src/assets/google-icon-2048x2048-czn3g8x8.png"

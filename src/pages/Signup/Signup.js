@@ -7,7 +7,7 @@ const Signup = () => {
   return (
     <div className="h-screen flex justify-center items-center">
       <img
-        src="/src/assets/creative-web-homepage-illustration/6495319.jpg"
+        src="../../assets/google-icon-2048x2048-czn3g8x8.png"
         alt="side Image"
       />
       <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950">
