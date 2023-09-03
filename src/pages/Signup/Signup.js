@@ -60,7 +60,6 @@ const Signup = () => {
                 src="/src/assets/google-icon-2048x2048-czn3g8x8.png"
                 className="g-icon h-8 w-8"
               />
-              {/* <AiFillGoogleCircle className="g-icon h-8 w-8" /> */}
             </a>
           </div>
         </div>
