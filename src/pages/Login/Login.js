@@ -10,9 +10,10 @@ const Login = () => {
         <img
           src={require("../../assets/creative-web-homepage-illustration/6495319.jpg")}
           alt="side Image"
+          className="h-96"
         />
       </div>
-      <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950 basis-2/5 ">
+      <div className="p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950 basis-2/5 ">
         <form className="login-container flex gap-5 flex-col items-center">
           <h1 className="">Welcome Back :)</h1>
           <p>
