@@ -2,8 +2,7 @@ import React from "react";
 import Input from "../../components/input";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { BiSolidUser } from "react-icons/bi";
-import { BiSolidLockAlt } from "react-icons/bi";
+
 
 const Signup = () => {
   return (
