@@ -1,8 +1,7 @@
 import React from "react";
-import Input from "../../components/input";
+import Input from "../components/input";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
-
 
 const Signup = () => {
   return (

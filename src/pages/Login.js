@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../../components/input";
+import Input from "../components/input";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
 
@@ -8,7 +8,7 @@ const Login = () => {
     <div className="flex items-center h-screen p-12">
       <div className="main-img basis-3/5">
         <img
-          src={require("../../assets/creative-web-homepage-illustration/6495319.jpg")}
+          src={require("../assets/creative-web-homepage-illustration/6495319.jpg")}
           alt="side Image"
           className="h-96"
         />
@@ -21,7 +21,7 @@ const Login = () => {
             information by email address and password
             <span>
               <img
-                src={require("../../assets/bell_1156949.png")}
+                src={require("../assets/bell_1156949.png")}
                 alt="bell icon"
               />
             </span>
@@ -63,7 +63,7 @@ const Login = () => {
           <div className="socialmedia h-8 w-8">
             <a href="#">
               <img
-                src={require("../../assets/google-icon-2048x2048-czn3g8x8.png")}
+                src={require("../assets/google-icon-2048x2048-czn3g8x8.png")}
                 className="g-icon h-8 w-8"
               />
             </a>
