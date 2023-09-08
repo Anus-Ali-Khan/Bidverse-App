@@ -1,71 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { CiUser } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <div>
-      <nav className="header">
-        <input type="checkbox" id="chk1" />
-        <div className="logo">
-          <h1>Social Influencer</h1>
-        </div>
-        <div className="search-box">
-          <input type="text" name="search" id="srch" placeholder="Search" />
-          <button type="submit">
-            <BsSearch />
-          </button>
-        </div>
-        <ul>
-          <li>
-            <Link to="/">Home </Link>
-          </li>
-          {!user.currentUser.hasOwnProperty("id") ? (
-            <>
-              <li>
-                <Link to="/login">Login </Link>
-              </li>
-              <li>
-                <Link to="/signup">Signup</Link>
-              </li>
-            </>
-          ) : (
-            <li>
-              <Link
-                onClick={() => {
-                  dispatch(clearUser());
-                  localStorage.clear();
-                }}
-              >
-                SignOut
-              </Link>
-            </li>
-          )}
-          {user.currentUser.id ? (
-            <>
-              <li>
-                <Link to="/post">Posts</Link>
-              </li>
-              <li>
-                <Link to="/createpost">createpost </Link>
-              </li>
-            </>
-          ) : null}
-          <li className="icons">
-            <a href="#">
-              <FaFacebook />
-            </a>
-            <a href="#">
-              <BsTwitter />
-            </a>
-            <a href="#">
-              <BsInstagram />
-            </a>
-          </li>
-        </ul>
-        <div className="menu">
-          <label htmlFor="chk1">
-            <FaBars />
-          </label>
-        </div>
+    <div className="navbars flex flex-col pr-4">
+      <nav className="flex gap-3">
+        <Link to="" className="flex gap-1">
+          <CiUser className="mt-1" />
+          Sign in
+        </Link>
+
+        <Link>
+          <button className="">Sign up</button>
+        </Link>
+      </nav>
+      <nav className="flex gap-3">
+        <Link>Home</Link>
+        <Link></Link>
+        <Link>Create Product</Link>
+        <Link>Favourites</Link>
+        <Link>My Cart</Link>
+        <Link>My Profile</Link>
       </nav>
     </div>
   );
