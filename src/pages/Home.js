@@ -19,7 +19,7 @@ const Home = () => {
           <img
             src={require("../assets/Logo.png")}
             alt="logo"
-            className="h-12 w-12"
+            className="h-12 w-14"
           />
           Bidverse.com
         </h1>
