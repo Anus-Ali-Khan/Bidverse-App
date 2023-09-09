@@ -12,7 +12,7 @@ const Navbar = () => {
             <img
               src={require("../assets/istockphoto-472330681-612x612.jpg")}
               alt="pak-flag"
-              className="h-4 w-6 mt-1 mr-1 ml-1 "
+              className="h-4 w-6 mt-1.5 mr-1 ml-1 "
             />
             PK
           </p>

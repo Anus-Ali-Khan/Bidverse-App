@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const Home = () => {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col bg-[url('../assets/global-networking-technology-background-digital-communication/rm373batch2-04.jpg')] ">
       <div className="h-12 w-full mt-0 bg-orange-600 text-white">
         <p className="text-center mt-2 font-medium text-lg ">
           Low prices, 60 days money-back policy, and much more.
