@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#bg-image-container {
+    background-image: url('/src/assets/global-networking-technology-background-digital-communication/rm373batch2-04.jpg');
+}

@@ -23,7 +23,7 @@ const Navbar = () => {
         </Link>
 
         <Link>
-          <button className="border border-solid bg-orange-500 font-semibold text-white p-2 rounded-full w-28 text-base ">
+          <button className="border border-solid bg-orange-500 font-semibold text-white p-2 rounded-full w-32 text-base ">
             Sign up
           </button>
         </Link>
