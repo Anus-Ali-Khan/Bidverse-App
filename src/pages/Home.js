@@ -44,17 +44,22 @@ const Home = () => {
               The leading B2B bidding platform for global trade
             </p>
           </div>
-          <div className="search mt-12 ">
+          <div className="search mt-12 relative">
             <input
               type="search"
               placeholder="Search here"
               className="w-[45%] rounded-full p-4"
             />
-            <BsCamera />
-            <button type="Submit">
-              <BiSearch />
-              Serach
-            </button>
+            <div className="flex items-center gap-4 absolute right-[52rem] top-1 ">
+              <BsCamera className=" text-black h-8 w-10" />
+              <button
+                type="Submit"
+                className="flex gap-1 items-center rounded-full border border-solid bg-orange-500 p-2 w-[80%] font-semibold "
+              >
+                <BiSearch className="mt-1 h-6 w-6" />
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>
