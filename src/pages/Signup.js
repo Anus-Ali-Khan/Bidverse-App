@@ -5,11 +5,14 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 
 const Signup = () => {
   return (
-    <div className="h-screen flex justify-center items-center">
-      <img
-        src="../../assets/google-icon-2048x2048-czn3g8x8.png"
-        alt="side Image"
-      />
+    <div className="flex items-center h-screen p-12">
+      <div className="basis-3/5">
+        <img
+          src={require("../assets/creative-web-homepage-illustration/6495319.jpg")}
+          alt="side Image"
+          className="h-96"
+        />
+      </div>
       <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950">
         <form className="login-container flex gap-5 flex-col items-center">
           <h1 className="">Welcome Back :)</h1>
@@ -17,7 +20,10 @@ const Signup = () => {
             To keep login with us please connected with your personal
             information by email address and password
             <span>
-              <img src="/src/assets/bell_1156949.png" alt="bell icon" />
+              <img
+                src={require("../assets/bell_1156949.png")}
+                alt="bell icon"
+              />
             </span>
           </p>
           <Input />
@@ -46,18 +52,18 @@ const Signup = () => {
         <div className="icons flex gap-4  ">
           <div className="socialmedia bg-white ">
             <a href="#">
-              <MdFacebook className="f-icon h-8 w-8 text-blue-700 " />
+              <MdFacebook className="f-icon h-9 w-9 text-blue-700 " />
             </a>
           </div>
           <div className="socialmedia">
             <a href="#">
-              <AiFillTwitterCircle className="t-icon h-8 w-8 text-sky-500" />
+              <AiFillTwitterCircle className="t-icon h-9 w-9 text-sky-500" />
             </a>
           </div>
-          <div className="socialmedia">
+          <div className="socialmedia h-8 w-8">
             <a href="#">
               <img
-                src="/src/assets/google-icon-2048x2048-czn3g8x8.png"
+                src={require("../assets/google-icon-2048x2048-czn3g8x8.png")}
                 className="g-icon h-8 w-8"
               />
             </a>
