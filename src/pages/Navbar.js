@@ -29,8 +29,7 @@ const Navbar = () => {
         </Link>
       </nav>
       <nav className="flex gap-8">
-        <Link>Home</Link>
-        <Link></Link>
+        <Link>Products</Link>
         <Link>Create Product</Link>
         <Link>Favourites</Link>
         <Link>My Cart</Link>

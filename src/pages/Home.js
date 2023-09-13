@@ -7,7 +7,7 @@ import { BiSearch } from "react-icons/bi";
 const Home = () => {
   return (
     <div
-      className="flex flex-col bg-no-repeat bg-center bg-cover h-screen text-white"
+      className="flex flex-col bg-no-repeat  bg-cover bg-center h-screen text-white"
       id="bg-image-container"
     >
       <div className="h-12 w-full mt-0 bg-orange-600 text-white">
