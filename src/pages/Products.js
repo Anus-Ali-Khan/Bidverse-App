@@ -10,7 +10,7 @@ function classNames(...classes) {
 
 export default function Products() {
   return (
-    <div className="bg-slate-100 h-screen">
+    <div className="bg-slate-100 h-auto">
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>
@@ -163,26 +163,42 @@ export default function Products() {
         <h1 className="text-4xl mt-10 ml-20 font-sans font-semibold">
           All Categories
         </h1>
-        <div className="flex justify-around mt-6 ">
-          <p className="border border-solid rounded-lg p-6 font-bold ">
+        <div className="flex flex-wrap justify-around mt-6 gap-8">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             Fashion
-            <img src={require("../assets/fashion.jpg")} alt="" />
+            <img src={require("../assets/fashion.jpg")} className="h-52 mt-2" />
           </p>
-          <p className="border border-solid rounded-lg p-6 font-bold ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             Electronics
-            <img src={require("../assets/electronics-500x500.webp")} alt="" />
+            <img
+              src={require("../assets/electronics-500x500.webp")}
+              className="h-52 mt-2"
+            />
           </p>
-          <p className="border border-solid rounded-lg p-6 font-bold ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white">
             Furniture
-            <img src={require("../assets/Furniture.jpg")} alt="" />
+            <img
+              src={require("../assets/Furniture.jpg")}
+              className="h-52 mt-2"
+            />
           </p>
-          <p className="border border-solid rounded-lg p-6 font-bold  ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             Sports
-            <img src={require("../assets/sports.jpeg")} alt="" />
+            <img src={require("../assets/sports.jpeg")} className="h-52 mt-2" />
           </p>
-          <p className="border border-solid rounded-lg p-6 font-bold ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             Medicines
-            <img src={require("../assets/medicines.jpg")} alt="" />
+            <img
+              src={require("../assets/medicines.jpg")}
+              className="h-52 mt-2"
+            />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Industrial Equipments
+            <img
+              src={require("../assets/Industrial Equipments.webp")}
+              className="h-52 mt-2"
+            />
           </p>
         </div>
       </div>
