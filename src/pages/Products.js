@@ -202,6 +202,56 @@ export default function Products() {
           </p>
         </div>
       </div>
+      <div>
+        <h1 className="text-4xl mt-10 ml-20 font-sans font-semibold">
+          Top Auctions
+        </h1>
+        <div className="flex flex-wrap justify-around mt-6 gap-8">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            LED TV
+            <img src={require("../assets/fashion.jpg")} className="h-52 mt-2" />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Washing Machine
+            <img
+              src={require("../assets/electronics-500x500.webp")}
+              className="h-52 mt-2"
+            />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Electronics
+            <img
+              src={require("../assets/electronics-500x500.webp")}
+              className="h-52 mt-2"
+            />
+          </p>
+        </div>
+      </div>
+      <div>
+        <h1 className="text-4xl mt-10 ml-20 font-sans font-semibold">
+          All Products
+        </h1>
+        <div className="flex flex-wrap justify-around mt-6 gap-8">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            LED TV
+            <img src={require("../assets/Blog-5.png")} className="h-52 mt-2" />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Washing Machine
+            <img
+              src={require("../assets/Neff-WASHING-MACHINE-W7460X4GB.webp")}
+              className="h-52 mt-2"
+            />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Electronics
+            <img
+              src={require("../assets/electronics-500x500.webp")}
+              className="h-52 mt-2"
+            />
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
