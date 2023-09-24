@@ -209,19 +209,19 @@ export default function Products() {
         <div className="flex flex-wrap justify-around mt-6 gap-8">
           <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             LED TV
-            <img src={require("../assets/fashion.jpg")} className="h-52 mt-2" />
+            <img src={require("../assets/LED.jpg")} className="h-52 mt-2" />
           </p>
           <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
             Washing Machine
             <img
-              src={require("../assets/electronics-500x500.webp")}
+              src={require("../assets/Washing-machine.webp")}
               className="h-52 mt-2"
             />
           </p>
           <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
-            Electronics
+            Property
             <img
-              src={require("../assets/electronics-500x500.webp")}
+              src={require("../assets/property.jpg")}
               className="h-52 mt-2"
             />
           </p>
@@ -233,22 +233,26 @@ export default function Products() {
         </h1>
         <div className="flex flex-wrap justify-around mt-6 gap-8">
           <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
-            LED TV
-            <img src={require("../assets/Blog-5.png")} className="h-52 mt-2" />
-          </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
-            Washing Machine
+            Stationary
             <img
-              src={require("../assets/Neff-WASHING-MACHINE-W7460X4GB.webp")}
+              src={require("../assets/stationery-set.jpg")}
               className="h-52 mt-2"
             />
           </p>
           <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
-            Electronics
+            Necklace
             <img
-              src={require("../assets/electronics-500x500.webp")}
+              src={require("../assets/necklace.png")}
               className="h-52 mt-2"
             />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white">
+            Almirah
+            <img src={require("../assets/almirah.jpg")} className="h-52 mt-2" />
+          </p>
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+            Sandals
+            <img src={require("../assets/sandals.jpg")} className="h-52 mt-2" />
           </p>
         </div>
       </div>

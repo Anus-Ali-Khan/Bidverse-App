@@ -8,7 +8,7 @@ const Login = () => {
     <div className="flex items-center h-screen p-12">
       <div className="main-img basis-3/5">
         <img
-          src={require("../assets/creative-web-homepage-illustration/6495319.jpg")}
+          src={require("../assets/6495319.jpg")}
           alt="side Image"
           className="h-96"
         />
