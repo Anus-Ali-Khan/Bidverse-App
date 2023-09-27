@@ -1,5 +1,6 @@
 import React from "react";
 import { PRODUCTS } from "../data/data";
+import Items from "../pages/Items";
 import Navbar2 from "../pages/Navbar2";
 
 export default function Products() {
@@ -59,16 +60,7 @@ export default function Products() {
           </h1>
           <div className="Top-products flex flex-wrap justify-around mt-6 gap-8">
             {PRODUCTS.map((product) => (
-              <div className="border border-solid rounded-2xl p-6  w-1/4 h-auto text-xl bg-white">
-                <img src={product.productImage} />
-                <div className="mt-4 text-center">
-                  <p className="font-semibold">
-                    <b>{product.Title}</b>
-                  </p>
-                  <p>{product.Description}</p>
-                  <p className="font-semibold">Rs.{product.Price}</p>
-                </div>
-              </div>
+              <Items data={product} />
             ))}
           </div>
         </div>
@@ -78,16 +70,7 @@ export default function Products() {
           </h1>
           <div className="Top-products flex flex-wrap justify-around mt-6 gap-8">
             {PRODUCTS.map((product) => (
-              <div className="border border-solid rounded-2xl p-6  w-1/4 h-auto text-xl bg-white">
-                <img src={product.productImage} />
-                <div className="mt-4 text-center">
-                  <p className="font-semibold">
-                    <b>{product.Title}</b>
-                  </p>
-                  <p>{product.Description}</p>
-                  <p className="font-semibold">Rs.{product.Price}</p>
-                </div>
-              </div>
+              <Items data={product} />
             ))}
           </div>
         </div>
