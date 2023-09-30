@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Favourites from "./pages/Favourites";
+import MyProfile from "./pages/MyProfile";
 import "./index.css";
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/myprofile" element={<MyProfile />} />
         </Routes>
       </Router>
     </div>

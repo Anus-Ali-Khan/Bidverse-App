@@ -28,12 +28,11 @@ const Navbar = () => {
           </button>
         </Link>
       </nav>
-      <nav className="flex gap-8">
-        <Link>Products</Link>
-        <Link>Create Product</Link>
-        <Link>Favourites</Link>
-        <Link>My Cart</Link>
-        <Link>My Profile</Link>
+      <nav className="flex gap-16">
+        <Link to="/products">Products</Link>
+        <Link to="/createProduct">Create Product</Link>
+        <Link to="/favourites">Favourites</Link>
+        <Link to="/myprofile">My Profile</Link>
       </nav>
     </div>
   );
