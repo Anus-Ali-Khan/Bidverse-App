@@ -17,12 +17,12 @@ const Navbar = () => {
             PK
           </p>
         </Link>
-        <Link to="" className="flex gap-1 items-center">
+        <Link to="/login" className="flex gap-1 items-center">
           <CiUser className=" h-6 w-6" />
           Sign in
         </Link>
 
-        <Link>
+        <Link to="/signup">
           <button className="border border-solid bg-orange-500 font-semibold text-white p-2 rounded-full w-32 text-base ">
             Sign up
           </button>
