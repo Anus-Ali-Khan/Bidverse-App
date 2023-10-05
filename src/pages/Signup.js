@@ -6,25 +6,13 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 const Signup = () => {
   return (
     <div className="flex items-center h-screen p-12">
-      <div className="basis-3/5">
-        <img
-          src={require("../assets/6495319.jpg")}
-          alt="side Image"
-          className="h-96"
-        />
-      </div>
+     
       <div className="w-fit p-5 flex flex-col items-center gap-6 justify-between border border-solid border-gray-950">
         <form className="login-container flex gap-5 flex-col items-center">
           <h1 className="">Welcome Back :)</h1>
           <p>
             To keep login with us please connected with your personal
             information by email address and password
-            <span>
-              <img
-                src={require("../assets/bell_1156949.png")}
-                alt="bell icon"
-              />
-            </span>
           </p>
           <Input />
           <div className="flex justify-end items-end">

@@ -5,3 +5,8 @@
 #bg-image-container {
     background-image: url('/src/assets/rm373batch2-04.jpg');
 }
+
+.bg-login {
+    background-image: url('/src//assets/login\ page\ background.jpg');
+
+}
