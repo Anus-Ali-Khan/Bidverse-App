@@ -1,9 +1,13 @@
 import React from "react";
-import Input from "../components/input";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import CustomInput from "../components/CustomInput";
+import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen">
       <div className="flex m-20 shadow-2xl box-border   ">
@@ -22,7 +26,24 @@ const Login = () => {
               To keep login with us please connected with your personal
               information by email address and password
             </p>
-            <Input />
+            <div className="input-container flex flex-col gap-3 w-[70%]">
+              <CustomInput
+                type="email"
+                label="Email"
+                onChange={() => {}}
+                placeholder={"user@gmail.com"}
+                styles={""}
+                icon={<BiSolidUser className="absolute top-10 left-3 " />}
+              />
+
+              <CustomInput
+                type="password"
+                label="Password"
+                onChange={() => {}}
+                placeholder={"Password"}
+                icon={<BiSolidLockAlt className="absolute top-10 left-3" />}
+              />
+            </div>
             <div className="flex justify-end items-end">
               <div className="flex">
                 <p className="underline underline-offset-4">Forgot Password?</p>
@@ -38,6 +59,7 @@ const Login = () => {
               <button
                 type="submit"
                 className="signup-button rounded-full w-full text-white bg-orange-400 font-semibold p-2"
+                onClick={() => navigate("/signup")}
               >
                 Create Account
               </button>
