@@ -2,8 +2,10 @@ import React from "react";
 import { PRODUCTS } from "../data/data";
 import Items from "../pages/Items";
 import Navbar2 from "../pages/Navbar2";
+import { useNavigate } from "react-router-dom";
 
 export default function Products() {
+  const navigate = useNavigate();
   return (
     <div className="bg-slate-100 h-auto">
       <Navbar2 />
@@ -11,7 +13,7 @@ export default function Products() {
         Search here...
       </button>
       <div>
-        <h1 className="text-5xl mt-10 mb-12 decoration- font-sans text-center font-semibold">
+        <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold">
           All Categories
         </h1>
         <div className="flex flex-wrap justify-around mt-6 gap-8">
@@ -54,21 +56,30 @@ export default function Products() {
         </div>
       </div>
       <div className="Category">
-        <div className="Top-rated">
+        <div
+          className="Top-rated cursor-pointer"
+          onClick={() => navigate("/singleproduct")}
+        >
           <h1 className="text-5xl mb-12 mt-20 text-center font-sans font-semibold">
             Top Auctions
           </h1>
-          <div className="Top-products flex flex-wrap justify-around mt-6 gap-8">
+          <div
+            className="Top-products flex flex-wrap justify-around mt-6 gap-8"
+            onClick={() => navigate("/singleproduct")}
+          >
             {PRODUCTS.map((product) => (
               <Items data={product} />
             ))}
           </div>
         </div>
-        <div className="All-products">
+        <div
+          className="All-products cursor-pointer"
+          onClick={() => navigate("/singleproduct")}
+        >
           <h1 className="text-5xl mt-20 text-center mb-12 font-sans font-semibold">
             All Products
           </h1>
-          <div className="Top-products flex flex-wrap justify-around mt-6 gap-8">
+          <div className="Top-products flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
             {PRODUCTS.map((product) => (
               <Items data={product} />
             ))}

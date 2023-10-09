@@ -6,6 +6,7 @@ import Products from "./pages/Products";
 import Favourites from "./pages/Favourites";
 import MyProfile from "./pages/MyProfile";
 import SingleProduct from "./pages/SingleProduct";
+import CreateProduct from "./pages/CreateProduct";
 import "./index.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/myprofile" element={<MyProfile />} />
+          <Route path="/createproduct" element={<CreateProduct />} />
           <Route path="/singleProduct" element={<SingleProduct />} />
         </Routes>
       </Router>
