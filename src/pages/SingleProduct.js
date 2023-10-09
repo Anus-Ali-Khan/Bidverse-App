@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar2 from "./Navbar2";
+import Modal from "../components/Modal";
 
 export default function SingleProduct() {
   return (
@@ -32,9 +33,7 @@ export default function SingleProduct() {
                 <p className="text-white">This bid has ended</p>
               </div>
             </div>
-            <button className="bg-orange-400 text-white w-[100%] p-2 text-lg mt-4 rounded-lg">
-              Place a bid
-            </button>
+            <Modal />
           </div>
         </div>
       </div>
