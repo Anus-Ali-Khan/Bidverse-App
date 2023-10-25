@@ -10,23 +10,25 @@ const Login = () => {
 
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen">
-      <div className="flex m-20 shadow-2xl box-border   ">
-        <div className="w-[60%] left-[8rem] ">
+      <div className="flex m-20 shadow-2xl box-border lg:mt-16">
+        <div className="w-[60%] left-[8rem] lg:w-[590px] lg:h-[518px] ">
           <img
             src={require("../assets/login image.jpg")}
             alt="img"
-            className="h-[100%] w-[100%]"
+            className="h-[100%] w-[100%] lg:w-[100%] lg:h-[100%] md:none"
           />
         </div>
 
-        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 ">
-          <form className="login-container flex gap-5 flex-col items-center">
-            <h1 className="font-semibold text-2xl">Welcome Back :)</h1>
-            <p className="text-center ">
-              To keep login with us please connected with your personal
+        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 lg:h-[515px] lg:w-[320px] lg:gap-4">
+          <form className="login-container flex gap-5 flex-col items-center lg:gap-3">
+            <h1 className="font-semibold text-2xl lg:text-xl">
+              Welcome Back :)
+            </h1>
+            <p className="text-center lg:text-sm ">
+              To keep login with us please connect with your personal
               information by email address and password
             </p>
-            <div className="input-container flex flex-col gap-3 w-[70%]">
+            <div className="input-container flex flex-col gap-3 w-[70%] lg:gap-2">
               <CustomInput
                 type="email"
                 label="Email"
@@ -49,16 +51,16 @@ const Login = () => {
                 <p className="underline underline-offset-4">Forgot Password?</p>
               </div>
             </div>
-            <div className="btns flex gap-5 w-[80%]">
+            <div className="btns flex gap-5 w-[80%] lg:w-[247px] lg:gap-4">
               <button
-                className="login-btn  bg-orange-400 font-semibold text-white p-3 rounded-full w-full"
+                className="login-btn  bg-orange-400 font-semibold text-white p-3 rounded-full w-full lg:p-1 lg:font-normal"
                 type="submit"
               >
                 Login Now
               </button>
               <button
                 type="submit"
-                className="signup-button rounded-full w-full text-white bg-orange-400 font-semibold p-2"
+                className="signup-button rounded-full w-full text-white bg-orange-400 font-semibold p-2 lg:p-1 lg:font-normal"
                 onClick={() => navigate("/signup")}
               >
                 Create Account
