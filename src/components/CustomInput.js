@@ -9,7 +9,9 @@ const CustomInput = ({
 }) => {
   return (
     <div className="relative flex flex-col">
-      <label className="font-medium text-lg">{label}</label>
+      <label className="font-medium text-lg max-[320px]:text-base">
+        {label}
+      </label>
       <input
         type={type}
         onChange={onChange}
