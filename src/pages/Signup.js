@@ -9,11 +9,11 @@ const Signup = () => {
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen">
       <div className="flex m-20 shadow-2xl box-border max-sm:m-0">
-        <div className="w-[60%] left-[8rem] md:hidden">
+        <div className="w-[60%] left-[8rem] sm:hidden md:block ">
           <img
             src={require("../assets/login image.jpg")}
             alt="img"
-            className="h-[100%] w-[100%] md:hidden max-sm:hidden"
+            className="h-[100%] w-[100%] max-md:hidden max-sm:hidden"
           />
         </div>
 
