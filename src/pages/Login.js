@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-none max-[320px]:bg-slate-100 ">
-      <div className="flex m-20 shadow-2xl box-border max-lg:mt-16 max-[320px]:m-0 max-[320px]:mt-12">
+      <div className="flex m-20 shadow-2xl box-border max-lg:mt-16 max-[320px]:m-0 max-[320px]:mt-12 ">
         <div className="w-[60%] left-[8rem]  max-lg:w-[590px] max-lg:h-[518px]  max-md:hidden max-sm:hidden max-[320px]:hidden">
           <img
             src={require("../assets/login image.jpg")}

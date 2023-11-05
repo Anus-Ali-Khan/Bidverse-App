@@ -7,9 +7,9 @@ import { HiOutlineMail } from "react-icons/hi";
 
 const Signup = () => {
   return (
-    <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen">
-      <div className="flex m-20 shadow-2xl box-border max-sm:m-0">
-        <div className="w-[60%] left-[8rem] sm:hidden md:block ">
+    <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-sm:bg-none">
+      <div className="flex m-20 shadow-2xl box-border max-sm:m-0 max-[320px]:mt-12">
+        <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden ">
           <img
             src={require("../assets/login image.jpg")}
             alt="img"
@@ -17,14 +17,14 @@ const Signup = () => {
           />
         </div>
 
-        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 md:h-[515px] md:w-[100%] md:gap-6 md:border md:border-solid">
-          <form className="login-container flex gap-5 flex-col items-center">
+        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-md:h-[515px] max-md:w-[100%] max-md:gap-6 md:border md:border-solid max-sm:gap-5">
+          <form className="login-container flex gap-5 flex-col items-center w-[70%]  ">
             <h1 className="font-semibold text-2xl">Create an account </h1>
-            <p className="text-center md:hidden ">
+            <p className="text-center max-md:hidden ">
               To keep login with us please connected with your personal
               information by email address and password
             </p>
-            <div className="input-container flex flex-col gap-3 w-[70%] lg:w-[80%] md:w-[100%]">
+            <div className="input-container flex flex-col gap-3 w-[70%] lg:w-[80%] md:w-[100%] max-sm:w-[100%]">
               <CustomInput
                 type="text"
                 label="Name"
