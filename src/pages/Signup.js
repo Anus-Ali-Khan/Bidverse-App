@@ -7,7 +7,7 @@ import { HiOutlineMail } from "react-icons/hi";
 
 const Signup = () => {
   return (
-    <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-sm:bg-none">
+    <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-slate-100">
       <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[650px] max-md:mt-0 max-[768px]:mt-0 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-0">
         <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden max-[768px]:hidden">
           <img

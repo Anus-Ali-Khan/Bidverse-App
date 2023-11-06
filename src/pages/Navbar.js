@@ -4,8 +4,8 @@ import { CiUser } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <div className="navbars flex flex-col pr-4 font-semibold text-lg">
-      <nav className="flex justify-evenly m-3 items-center ">
+    <div className="navbars flex flex-col pr-8 font-semibold text-lg max-md:text-sm  max-[768px]:text-sm">
+      <nav className="flex justify-evenly m-3 items-center max-sm:hidden ">
         <Link>
           <p className="flex">
             Ship to:
@@ -28,7 +28,7 @@ const Navbar = () => {
           </button>
         </Link>
       </nav>
-      <nav className="flex gap-16">
+      <nav className="flex gap-16 max-lg:gap-12 max-[1024px]:gap-12 max-sm:hidden  ">
         <Link to="/products">Products</Link>
         <Link to="/createProduct">Create Product</Link>
         <Link to="/favourites">Favourites</Link>
