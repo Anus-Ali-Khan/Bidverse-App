@@ -9,44 +9,44 @@ export default function Products() {
   return (
     <div className="bg-slate-100 h-auto">
       <Navbar2 />
-      <button className="flex mt-10 ml-96 gap-1 items-center rounded-full border border-solid bg-white p-3 w-[50%] font-semibold">
+      <button className="flex mt-10 ml-96 gap-1 items-center rounded-full border border-solid bg-white p-3 w-[50%] font-semibold max-lg:ml-[16rem] max-md:ml-[12rem] max-sm:ml-2 max-sm:w-[90%]  ">
         Search here...
       </button>
       <div>
-        <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold">
+        <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold max-sm:text-4xl ">
           All Categories
         </h1>
-        <div className="flex flex-wrap justify-around mt-6 gap-8">
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+        <div className="flex flex-wrap justify-around mt-6 gap-8 ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
             Fashion
             <img src={require("../assets/fashion.jpg")} className="h-52 mt-2" />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
             Electronics
             <img
               src={require("../assets/electronics-500x500.webp")}
               className="h-52 mt-2"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white max-md:w-[45%] max-sm:w-[90%]">
             Furniture
             <img
               src={require("../assets/Furniture.jpg")}
               className="h-52 mt-2"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
             Sports
             <img src={require("../assets/sports.jpeg")} className="h-52 mt-2" />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
             Medicines
             <img
               src={require("../assets/medicines.jpg")}
               className="h-52 mt-2"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
             Industrial Equipments
             <img
               src={require("../assets/Industrial Equipments.webp")}
@@ -57,14 +57,14 @@ export default function Products() {
       </div>
       <div className="Category">
         <div
-          className="Top-rated cursor-pointer"
+          className="Top-rated cursor-pointer "
           onClick={() => navigate("/singleproduct")}
         >
-          <h1 className="text-5xl mb-12 mt-20 text-center font-sans font-semibold">
+          <h1 className="text-5xl mb-12 mt-20 text-center font-sans font-semibold max-sm:text-4xl">
             Top Auctions
           </h1>
           <div
-            className="Top-products flex flex-wrap justify-around mt-6 gap-8"
+            className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:w-auto "
             onClick={() => navigate("/singleproduct")}
           >
             {PRODUCTS.map((product) => (
@@ -76,10 +76,10 @@ export default function Products() {
           className="All-products cursor-pointer"
           onClick={() => navigate("/singleproduct")}
         >
-          <h1 className="text-5xl mt-20 text-center mb-12 font-sans font-semibold">
+          <h1 className="text-5xl mt-20 text-center mb-12 font-sans font-semibold max-sm:text-4xl">
             All Products
           </h1>
-          <div className="Top-products flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
+          <div className=" flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
             {PRODUCTS.map((product) => (
               <Items data={product} />
             ))}

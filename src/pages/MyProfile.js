@@ -54,11 +54,6 @@ export default function MyProfile() {
               </button>
               <BiSolidArrowToRight className="absolute right-0" />
             </div>
-            <div className=" flex justify-center flex-col items-center relative">
-              <button className="p-2   bg-orange-400 text-white mt-4 text-center border-black font-medium rounded-md">
-                Sign out
-              </button>
-            </div>
           </div>
         </div>
       </div>

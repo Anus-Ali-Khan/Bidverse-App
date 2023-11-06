@@ -6,18 +6,21 @@ import CustomInput from "../components/CustomInput";
 export default function CreateProduct() {
   return (
     <div>
-      <Navbar2 />
+      <Navbar2 className="max-md:gap-4 " />
       <div className="flex flex-col p-8 ">
-        <p className="text-2xl mb-2 font-semibold "> Add Product</p>
-        <div className="flex gap-16">
-          <div className="border border-slate-300 w-[40%] h-[70%] flex flex-col items-center p-6 rounded-xl ">
+        <p className="text-2xl mb-2 font-semibold max-sm:text-center ">
+          {" "}
+          Add Product
+        </p>
+        <div className="flex  gap-16 max-sm:flex-col">
+          <div className="border border-slate-300 w-[40%] h-[70%] flex flex-col items-center p-6 rounded-xl max-sm:w-[100%]">
             <BiImage className="w-[80%] h-[80%]  " />
-            <input type="file" className="" />
+            <input type="file" className="max-md:ml-12" />
             <button className="bg-orange-400 text-white w-[80%] p-2 text-lg mt-4 rounded-lg">
               Upload Image
             </button>
           </div>
-          <div className="border border-slate-300 w-[40%] h-[80%] gap-4 flex flex-col p-6">
+          <div className="border border-slate-300 w-[40%] h-[80%] gap-4 flex flex-col p-6 max-sm:w-[100%]">
             <CustomInput
               type="text"
               placeholder="Product Name"

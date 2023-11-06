@@ -24,7 +24,7 @@ export default function Navbar2() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
+                  <span className="absolute -inset-0.5  " />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -36,14 +36,14 @@ export default function Navbar2() {
               <div className="flex  sm:items-stretch ">
                 <div className="flex flex-shrink-0 ">
                   <img
-                    className="h-8 w-10"
+                    className="h-8 w-10 "
                     src={require("../assets/Logo.png")}
                     alt="Your Company"
                   />
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:block ">
-                <div className="flex gap-20 ">
+                <div className="flex gap-20 max-md:gap-8">
                   {navigation.map((item) => (
                     <a
                       key={item.name}

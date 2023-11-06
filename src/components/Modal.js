@@ -17,12 +17,12 @@ export default function Modal() {
       </button>
 
       {modal && (
-        <div className="modal">
+        <div className="modal ">
           <div
             onClick={toggleModal}
             className="h-screen w-screen top-0 left-0 right-0 bottom-0 fixed bg-[rgba(49,49,49,0.8)]"
           ></div>
-          <div className="absolute top-[40%] left-[40%] bg-white w-[20%] h-fit p-4 rounded-lg">
+          <div className="absolute top-[40%] left-[40%] bg-white w-[20%] h-fit p-4 rounded-lg max-sm:w-[70%] max-sm:left-12 max-md:w-[50%] max-md:left-44 ">
             <p className="text-black text-xl font-semibold">Place Your Bid</p>
             <p className="mt-4 text-black text-base font-medium">Amount</p>
             <div className="relative">
