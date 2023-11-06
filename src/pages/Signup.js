@@ -8,23 +8,23 @@ import { HiOutlineMail } from "react-icons/hi";
 const Signup = () => {
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-sm:bg-none">
-      <div className="flex m-20 shadow-2xl box-border max-sm:m-0 max-[320px]:mt-12">
-        <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden ">
+      <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[650px] max-md:mt-0 max-[768px]:mt-0 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-0">
+        <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden max-[768px]:hidden">
           <img
             src={require("../assets/login image.jpg")}
             alt="img"
-            className="h-[100%] w-[100%] max-md:hidden max-sm:hidden"
+            className="h-[100%] w-[100%] max-md:hidden  max-[768px]:hidden max-sm:hidden"
           />
         </div>
 
-        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-md:h-[515px] max-md:w-[100%] max-md:gap-6 md:border md:border-solid max-sm:gap-5">
+        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-lg:w-[330px]  max-[1024px]:h-[650px] max-[1024px]:w-[340px] max-md:w-[100%] max-md:gap-6 max-md:border max-md:border-solid max-[768px]:border max-[768px]:border-solid max-[768px]:gap-5 max-[768px]:h-[500px] max-[768px]:w-[100%] max-sm:gap-3">
           <form className="login-container flex gap-5 flex-col items-center w-[70%]  ">
             <h1 className="font-semibold text-2xl">Create an account </h1>
-            <p className="text-center max-md:hidden ">
+            <p className="text-center max-md:hidden max-[768px]:hidden">
               To keep login with us please connected with your personal
               information by email address and password
             </p>
-            <div className="input-container flex flex-col gap-3 w-[70%] lg:w-[80%] md:w-[100%] max-sm:w-[100%]">
+            <div className="input-container flex flex-col gap-3 w-[70%] max-lg:w-[80%] md:w-[100%] max-sm:w-[100%]">
               <CustomInput
                 type="text"
                 label="Name"
