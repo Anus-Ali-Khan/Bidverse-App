@@ -16,41 +16,47 @@ export default function Products() {
         <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold max-sm:text-4xl ">
           All Categories
         </h1>
-        <div className="flex flex-wrap justify-around mt-6 gap-8 ">
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
+        <div className="flex flex-wrap justify-around mt-6 gap-8   ">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[40%] max-sm:w-[90%]">
             Fashion
-            <img src={require("../assets/fashion.jpg")} className="h-52 mt-2" />
+            <img
+              src={require("../assets/fashion.jpg")}
+              className="h-52 mt-2  max-lg:h-[10rem]"
+            />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[40%] max-sm:w-[90%]">
             Electronics
             <img
               src={require("../assets/electronics-500x500.webp")}
-              className="h-52 mt-2"
+              className="h-52 mt-2 max-lg:h-[10rem]"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white max-md:w-[45%] max-sm:w-[90%]">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl  bg-white max-md:w-[40%] max-sm:w-[90%]">
             Furniture
             <img
               src={require("../assets/Furniture.jpg")}
-              className="h-52 mt-2"
+              className="h-52 mt-2 max-lg:h-[10rem]"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[40%] max-sm:w-[90%]">
             Sports
-            <img src={require("../assets/sports.jpeg")} className="h-52 mt-2" />
+            <img
+              src={require("../assets/sports.jpeg")}
+              className="h-52 mt-2 max-lg:h-[10rem]"
+            />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[40%] max-sm:w-[90%]">
             Medicines
             <img
               src={require("../assets/medicines.jpg")}
-              className="h-52 mt-2"
+              className="h-52 mt-2 max-lg:h-[10rem]"
             />
           </p>
-          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-md:w-[45%] max-sm:w-[90%]">
+          <p className="border border-solid rounded-2xl p-6 font-bold w-1/4 h-fit text-xl bg-white max-lg:p-4 max-md:w-[40%] max-sm:w-[90%]">
             Industrial Equipments
             <img
               src={require("../assets/Industrial Equipments.webp")}
-              className="h-52 mt-2"
+              className="h-52 mt-2 max-lg:h-[10rem]"
             />
           </p>
         </div>
@@ -64,7 +70,7 @@ export default function Products() {
             Top Auctions
           </h1>
           <div
-            className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:w-auto "
+            className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
             onClick={() => navigate("/singleproduct")}
           >
             {PRODUCTS.map((product) => (

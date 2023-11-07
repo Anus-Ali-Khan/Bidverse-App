@@ -9,7 +9,6 @@ export default function CreateProduct() {
       <Navbar2 className="max-md:gap-4 " />
       <div className="flex flex-col p-8 ">
         <p className="text-2xl mb-2 font-semibold max-sm:text-center ">
-          {" "}
           Add Product
         </p>
         <div className="flex  gap-16 max-sm:flex-col">

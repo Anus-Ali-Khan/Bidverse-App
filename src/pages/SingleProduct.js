@@ -11,10 +11,10 @@ export default function SingleProduct() {
           <img
             src={require("../assets/Furniture.jpg")}
             alt=""
-            className="h-[25rem] max-md:h-[15rem] max-md:w-[100%]"
+            className="h-[25rem] max-lg:h-[20rem] max-md:h-[15rem] max-md:w-[100%]"
           />
         </div>
-        <div className="flex flex-col gap-6 max-md:gap-4 max-sm:gap-2 max-sm:w-[150%]">
+        <div className="flex flex-col gap-6 max-lg:w-[65%] max-md:w-[80%] max-md:gap-4 max-sm:gap-2 max-sm:w-[150%]">
           <p className="text-center font-bold text-5xl max-lg:text-4xl max-md:text-3xl max-sm:text-2xl ">
             Furniture Set
           </p>
