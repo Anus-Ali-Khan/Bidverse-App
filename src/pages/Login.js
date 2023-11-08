@@ -4,9 +4,14 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
+import Axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  Axios.post("http://localhost:5000/api/v1/login").then((res) => {
+    console.log(res.data);
+  });
 
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-none max-[320px]:bg-slate-100 ">

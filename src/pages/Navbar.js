@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CiUser } from "react-icons/ci";
+import { FaBars, FaTimes } from "react-icons/fa";
+
+const navLinks = [
+  { name: "Products", href: "/products", current: true },
+  { name: "Create Product", href: "/createProduct", current: true },
+  { name: "Favourites", href: "/favourites", current: true },
+  { name: "My Profile", href: "/myprofile", current: true },
+];
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="navbars flex flex-col pr-8 font-semibold text-lg max-md:text-sm  max-[768px]:text-sm">
       <nav className="flex justify-evenly m-3 items-center max-sm:hidden ">
@@ -28,12 +37,24 @@ const Navbar = () => {
           </button>
         </Link>
       </nav>
-      <nav className="flex gap-16 max-lg:gap-12 max-[1024px]:gap-12 max-sm:hidden  ">
-        <Link to="/products">Products</Link>
-        <Link to="/createProduct">Create Product</Link>
-        <Link to="/favourites">Favourites</Link>
-        <Link to="/myprofile">My Profile</Link>
+      <nav className="flex gap-16 max-lg:gap-12 max-[1024px]:gap-12   ">
+        {navLinks.map((item) => (
+          <a key={item.name} href={item.href}>
+            {item.name}
+          </a>
+        ))}
       </nav>
+      {/* hamburger Menu */}
+      <div className="mr-2 flex md:hidden">
+        <button
+          type="button"
+          onClick={() => {}}
+          className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+        >
+          <span className="sr-only">Open Main Menu</span>
+          {(open = true ? <FaTimes /> : <FaBars />)}
+        </button>
+      </div>
     </div>
   );
 };
