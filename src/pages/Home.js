@@ -21,11 +21,11 @@ const Home = () => {
         </p>
       </div>
       <div className="flex items-center justify-between max-sm:mt-4">
-        <h1 className="pl-8 flex items-center gap-2 text-5xl font-serif font-medium max-lg:text-3xl  max-[1024px]:text-3xl max-md:text-2xl max-[768px]:text-2xl max-sm:text-sm max-sm:pl-4">
+        <h1 className="pl-8 flex items-center gap-2 text-5xl font-serif font-medium max-lg:text-3xl  max-[1024px]:text-3xl max-md:text-2xl max-[768px]:text-2xl max-sm:text-sm max-sm:pl-4 relative">
           <img
             src={require("../assets/Logo.png")}
             alt="logo"
-            className="h-14 w-16 max-lg:h-12 max-lg:w-12 max-[1024px]:h-12 max-[1024px]:w-12 max-md:h-8 max-md:w-8 max-[768px]:h-8 max-[768px]:w-8 max-sm:h-6 max-sm:w-6 max-[320px]:h-6 max-[320px]:w-6 "
+            className="h-14 w-16 max-lg:h-12 max-lg:w-12 max-[1024px]:h-12 max-[1024px]:w-12 max-md:h-8 max-md:w-8 max-[768px]:h-8 max-[768px]:w-8 max-sm:h-6 max-sm:w-6 max-[320px]:h-6 max-[320px]:w-6  "
           />
           Bidverse.com
         </h1>
