@@ -19,7 +19,6 @@ const Navbar = () => {
     setOpen((prev) => {
       return !prev;
     });
-    console.log(open);
   };
 
   return (
@@ -58,7 +57,7 @@ const Navbar = () => {
         </nav>
       </div>
       {/* hamburger Menu */}
-      <div className="flex md:hidden max-md:hidden">
+      <div className="flex md:hidden ">
         <button
           type="button"
           onClick={handleMenu}
@@ -70,7 +69,7 @@ const Navbar = () => {
       </div>
       {/* mobile menu */}
       {open ? (
-        <div className="max-md:hidden">
+        <div className="md:hidden">
           <div className="z-10 absolute right-1 top-32 pt-2 pb-3 space-y-1 sm:px-3 bg-black w-full">
             {navLinks.map((item) => (
               <a
