@@ -4,16 +4,16 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
-import AuthContext from "../context/AuthProvider";
+import { useDispatch } from "react-redux";
+// use to modify the values of state created in redux
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -24,11 +24,11 @@ const Login = () => {
 
   useEffect(() => {
     setErrMsg();
-  }, [user, pwd]);
+  }, [email, pwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user, pwd);
+    console.log(email, pwd);
     setUser("");
     setPwd("");
     setSuccess("true");
@@ -65,9 +65,9 @@ const Login = () => {
                   <CustomInput
                     type="email"
                     label="Email"
-                    value={user}
+                    value={email}
                     ref={userRef}
-                    onChange={(e) => setUser(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder={"user@gmail.com"}
                     icon={<BiSolidUser className="absolute top-10 left-3 " />}
                     required
