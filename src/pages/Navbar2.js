@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { signout } from "../Redux features/users";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -14,6 +16,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar2() {
+  const dispatch = useDispatch();
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -96,6 +100,7 @@ export default function Navbar2() {
                           </a>
                         )}
                       </Menu.Item>
+
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -105,20 +110,9 @@ export default function Navbar2() {
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Sign out
+                            <button onClick={() => dispatch(signout())}>
+                              Sign out
+                            </button>
                           </a>
                         )}
                       </Menu.Item>

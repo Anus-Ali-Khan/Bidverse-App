@@ -31,7 +31,8 @@ export default function MyProfile() {
               <BiSolidUser className="absolute top-10 left-4 max-sm:top-9" />
               <input
                 type="text"
-                placeholder={user.name}
+                placeholder="Anus Ali Khan"
+                value={user.name}
                 className="p-2 border border-black rounded-md text-center"
               />
             </div>
@@ -42,7 +43,8 @@ export default function MyProfile() {
               <BiPhone className="absolute top-10 left-4 max-sm:top-9" />
               <input
                 type="number"
-                placeholder={user.phoneNo}
+                placeholder="03224455667"
+                value={user.phoneNo}
                 className="p-2  border rounded-md text-center  border-black"
               />
             </div>
