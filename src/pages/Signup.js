@@ -1,11 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { login } from "../Redux features/users";
+import { useDispatch } from "react-redux";
+import axios from "../api/axios";
+
+const SIGNUP_URL = "/api/v1/signup";
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        SIGNUP_URL,
+        { name, email, password: pwd },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      setEmail("");
+      setPwd("");
+      console.log(response?.data);
+
+      localStorage.setItem("token", response.data.token);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing User Email or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+    }
+  };
+
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-slate-100">
       <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[515px] max-md:mt-0 max-[768px]:mt-0 max-[768px]:mt-8 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-6">
@@ -18,7 +60,10 @@ const Signup = () => {
         </div>
 
         <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-lg:w-[330px] max-[1024px]:gap-4 max-[1024px]:h-[515px] max-[1024px]:w-[340px] max-md:w-[100%] max-md:gap-6 max-md:border max-md:border-solid max-[1024px]:p-2 max-[768px]:border max-[768px]:border-solid max-[768px]:gap-5 max-[768px]:h-[500px] max-[768px]:w-[100%] max-sm:gap-3">
-          <form className="login-container flex gap-5 flex-col items-center w-[70%]  ">
+          <form
+            onSubmit={handleSubmit}
+            className="login-container flex gap-5 flex-col items-center w-[70%]  "
+          >
             <h1 className="font-semibold text-2xl">Create an account </h1>
             <p className="text-center max-md:hidden max-[1024px]:hidden max-[768px]:hidden">
               To keep login with us please connected with your personal
@@ -28,27 +73,33 @@ const Signup = () => {
               <CustomInput
                 type="text"
                 label="Name"
-                onChange={() => {}}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder={"Anus Ali Khan"}
                 styles={""}
                 icon={<BiSolidUser className="absolute top-10 left-3 " />}
+                required
               />
               <CustomInput
                 type="email"
                 BiSolidLockAlt
                 label="Email"
-                onChange={() => {}}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder={"user@gmail.com"}
                 styles={""}
                 icon={<HiOutlineMail className="absolute top-10 left-3 " />}
+                required
               />
 
               <CustomInput
                 type="password"
                 label="Create Password"
-                onChange={() => {}}
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
                 placeholder={"Password"}
                 icon={<BiSolidLockAlt className="absolute top-10 left-3" />}
+                required
               />
             </div>
 
@@ -60,6 +111,7 @@ const Signup = () => {
                 Create Account
               </button>
             </div>
+
             <div className="flex justify-end items-end">
               <div className="flex">
                 <p className="underline underline-offset-4">
