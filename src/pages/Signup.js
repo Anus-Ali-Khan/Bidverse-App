@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdFacebook } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import CustomInput from "../components/CustomInput";
-import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
+import { BiSolidLockAlt, BiSolidUser, BiPhone } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { login } from "../Redux features/users";
@@ -40,7 +40,7 @@ const Signup = () => {
 
       if (response.data?.success === true) {
         dispatch(login(response.data.user));
-        navigate("/");
+        navigate("/login");
       }
     } catch (err) {
       if (!err?.response) {
@@ -55,7 +55,7 @@ const Signup = () => {
 
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-slate-100">
-      <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[515px] max-md:mt-0  max-[768px]:mt-8 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-6">
+      <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[570px] max-md:mt-0  max-[768px]:mt-8 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-6">
         <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden max-[768px]:hidden">
           <img
             src={require("../assets/login image.jpg")}
@@ -64,16 +64,16 @@ const Signup = () => {
           />
         </div>
 
-        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-lg:w-[330px] max-[1024px]:gap-4 max-[1024px]:h-[515px] max-[1024px]:w-[340px] max-md:w-[100%] max-md:gap-6 max-md:border max-md:border-solid max-[1024px]:p-2 max-[768px]:border max-[768px]:border-solid max-[768px]:gap-5 max-[768px]:h-[500px] max-[768px]:w-[100%] max-sm:gap-3">
+        <div className="h-[90%] w-[30%] gap-8 m-auto bg-white flex flex-col justify-center items-center p-2 max-lg:w-[330px] max-[1024px]:gap-4 max-[1024px]:h-[570px] max-[1024px]:w-[340px] max-md:w-[100%] max-md:gap-6 max-md:border max-md:border-solid max-[1024px]:p-2 max-[768px]:border max-[768px]:border-solid max-[768px]:gap-5 max-[768px]:h-[580px] max-[768px]:w-[100%] max-sm:gap-3">
           <form
             onSubmit={handleSubmit}
             className="login-container flex gap-5 flex-col items-center w-[70%]  "
           >
             <h1 className="font-semibold text-2xl">Create an account </h1>
-            <p className="text-center max-md:hidden max-[1024px]:hidden max-[768px]:hidden">
+            {/* <p className="text-center max-md:hidden max-[1024px]:hidden max-[768px]:hidden">
               To keep login with us please connected with your personal
               information by email address and password
-            </p>
+            </p> */}
             <div className="input-container flex flex-col gap-3  w-[70%] max-lg:w-[80%] md:w-[100%] max-sm:w-[100%]">
               <CustomInput
                 type="text"
@@ -87,13 +87,22 @@ const Signup = () => {
               />
               <CustomInput
                 type="email"
-                BiSolidLockAlt
                 label="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={"user@gmail.com"}
                 styles={""}
                 icon={<HiOutlineMail className="absolute top-10 left-3 " />}
+                required
+              />
+              <CustomInput
+                type="number"
+                label="Phone Number"
+                value={phoneNo}
+                onChange={(e) => setPhoneNo(e.target.value)}
+                placeholder={"0322114455"}
+                styles={""}
+                icon={<BiPhone className="absolute top-10 left-3 " />}
                 required
               />
 
@@ -116,18 +125,18 @@ const Signup = () => {
                 Create Account
               </button>
             </div>
-
-            <div className="flex justify-end items-end">
-              <div className="flex">
-                <p className="underline underline-offset-4">
-                  Already have an account?
-                  <a href="/login" className="hover:text-orange-400">
-                    Login
-                  </a>
-                </p>
-              </div>
-            </div>
           </form>
+          <div className="flex justify-end items-end">
+            <div className="flex">
+              <p className="underline underline-offset-4">
+                Already have an account?
+                <a href="/login" className="hover:text-orange-400">
+                  Login
+                </a>
+              </p>
+            </div>
+          </div>
+
           <p>or you can join with</p>
           <div className="icons flex gap-4 ">
             <div className="socialmedia bg-white ">
