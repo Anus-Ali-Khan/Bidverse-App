@@ -9,7 +9,7 @@ import { login } from "../Redux features/users";
 import { useDispatch } from "react-redux";
 import axios from "../api/axios";
 
-const SIGNUP_URL = "/api/v1/signup";
+const SIGNUP_URL = "api/v1/signup";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  const [phoneNo, setPhoneNo] = useState("03110162299");
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (e) => {
@@ -25,32 +26,36 @@ const Signup = () => {
     try {
       const response = await axios.post(
         SIGNUP_URL,
-        { name, email, password: pwd },
+        { name, email, password: pwd, number: phoneNo },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
+
       setEmail("");
       setPwd("");
       console.log(response?.data);
 
       localStorage.setItem("token", response.data.token);
+
+      if (response.data?.success === true) {
+        dispatch(login(response.data.user));
+        navigate("/");
+      }
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server Response");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Missing User Email or Password");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
+      } else if (err.response?.status === 409) {
+        setErrMsg("Username Taken");
       } else {
-        setErrMsg("Login Failed");
+        setErrMsg("Registration Failed");
       }
     }
   };
 
   return (
     <div className=" bg-login  bg-no-repeat  p-[10px] bg-cover bg-center h-screen max-[320px]:bg-slate-100">
-      <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[515px] max-md:mt-0 max-[768px]:mt-0 max-[768px]:mt-8 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-6">
+      <div className="flex m-12 shadow-2xl box-border max-[1024px]:h-[515px] max-md:mt-0  max-[768px]:mt-8 max-lg:h-[650px] max-sm:m-0 max-[320px]:mt-6">
         <div className="w-[60%] left-[8rem] max-sm:hidden max-md:hidden max-[768px]:hidden">
           <img
             src={require("../assets/login image.jpg")}
