@@ -5,7 +5,7 @@ import { BiPhone } from "react-icons/bi";
 import Navbar2 from "../pages/Navbar2";
 import { BiSolidArrowToRight } from "react-icons/bi";
 import { useSelector } from "react-redux";
-// useSelector is used to access the state created in redux
+// useSelector is used to access the new state that is created after dispatch in redux
 
 export default function MyProfile() {
   const user = useSelector((state) => state.user.value);

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-// useDispatch to modify the values of state created in redux
+// useDispatch to modify the values of state created in redux and get them stored in redux
 import { login } from "../Redux features/users";
 import axios from "../api/axios";
 

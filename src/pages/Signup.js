@@ -18,7 +18,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
-  const [phoneNo, setPhoneNo] = useState("03110162299");
+  const [phoneNo, setPhoneNo] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (e) => {
