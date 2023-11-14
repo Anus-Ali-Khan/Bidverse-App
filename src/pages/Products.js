@@ -3,27 +3,14 @@ import { PRODUCTS } from "../data/data";
 import Items from "../pages/Items";
 import Navbar2 from "../pages/Navbar2";
 import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
-import { allProducts } from "../Redux features/productStore";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const PROD_URL = "api/v1/product/";
+// const PROD_URL = "api/v1/product/";
 
 export default function Products() {
   const product = useSelector((state) => state.product.value);
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    try {
-      const response = await axios.get(PROD_URL, {
-        token: localStorage.getItem("token"),
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
-  const navigate = useNavigate();
   return (
     <div className="bg-slate-100 h-auto">
       <Navbar2 />
