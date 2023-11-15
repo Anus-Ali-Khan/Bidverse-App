@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../api/axios";
 
-const initialStateValue = { products: "", isLoading: false, error: null };
-const PROD_URL = "api/v1/product/";
+const initialStateValue = { products: [], isLoading: false, error: null };
+const PROD_URL = "/api/v1/product/";
 
 export const getProducts = createAsyncThunk("getProducts", async () => {
   try {
@@ -10,7 +10,7 @@ export const getProducts = createAsyncThunk("getProducts", async () => {
       token: localStorage.getItem("token"),
     });
     return response;
-  } catch (err) {
+  } catch (error) {
     return;
   }
 });
@@ -18,12 +18,19 @@ export const getProducts = createAsyncThunk("getProducts", async () => {
 export const productSlice = createSlice({
   name: "product",
   initialState: { value: initialStateValue },
-  reducers: {
-    allProducts: (state, action) => {
-      state.value = action.payload;
+  extraReducers: {
+    [getProducts.pending]: (state) => {
+      state.loading = true;
+    },
+    [getProducts.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.products = action.payload;
+    },
+    [getProducts.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
 
-export const { allProducts } = productSlice.actions;
 export default productSlice.reducer;

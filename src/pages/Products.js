@@ -4,12 +4,14 @@ import Items from "../pages/Items";
 import Navbar2 from "../pages/Navbar2";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
-// const PROD_URL = "api/v1/product/";
+import { getProducts } from "../Redux features/productStore";
 
 export default function Products() {
-  const product = useSelector((state) => state.product.value);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
 
   return (
     <div className="bg-slate-100 h-auto">
