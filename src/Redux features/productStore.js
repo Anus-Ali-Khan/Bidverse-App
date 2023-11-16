@@ -12,10 +12,10 @@ export const getProducts = createAsyncThunk("getProducts", async () => {
     const response = await axios.get(PROD_URL, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${jwtToken}`,
+        "x-auth-token": `${jwtToken}`,
       },
     });
-    return response;
+    return response.data;
   } catch (error) {
     return;
   }
@@ -30,6 +30,7 @@ export const productSlice = createSlice({
     },
     [getProducts.fulfilled]: (state, action) => {
       state.loading = false;
+      console.log(action.payload);
       state.products = action.payload;
     },
     [getProducts.rejected]: (state, action) => {
