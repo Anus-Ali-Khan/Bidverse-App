@@ -4,10 +4,16 @@ import axios from "../api/axios";
 const initialStateValue = { products: [], isLoading: false, error: null };
 const PROD_URL = "/api/v1/product/";
 
+const jwtToken = localStorage.getItem("token");
+console.log(jwtToken);
+
 export const getProducts = createAsyncThunk("getProducts", async () => {
   try {
     const response = await axios.get(PROD_URL, {
-      token: localStorage.getItem("token"),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
     });
     return response;
   } catch (error) {
