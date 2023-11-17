@@ -5,12 +5,12 @@ import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import userReducer from "./Redux features/users";
-import productReducer from "./Redux features/productStore";
+import productReducer from "./Redux features/products";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
-    productStore: productReducer,
+    products: productReducer,
   },
 });
 

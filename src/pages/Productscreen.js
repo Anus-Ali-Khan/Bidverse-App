@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { PRODUCTS } from "../data/data";
-import Items from "../pages/Items";
-import Navbar2 from "../pages/Navbar2";
+import Items from "./Items";
+import Navbar2 from "./Navbar2";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../Redux features/productStore";
+import { getProducts } from "../Redux features/products";
 
 export default function Products() {
   const dispatch = useDispatch();
+  const allProducts = useSelector((state) => {
+    return state.products;
+  });
+  console.log("products inn store", allProducts);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -80,7 +84,7 @@ export default function Products() {
             className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
             onClick={() => navigate("/singleproduct")}
           >
-            {PRODUCTS.map((product) => (
+            {allProducts.products.map((product) => (
               <Items data={product} />
             ))}
           </div>
@@ -93,7 +97,7 @@ export default function Products() {
             All Products
           </h1>
           <div className=" flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
-            {PRODUCTS.map((product) => (
+            {allProducts.products.map((product) => (
               <Items data={product} />
             ))}
           </div>
