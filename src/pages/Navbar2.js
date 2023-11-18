@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
-import { signout } from "../Redux features/users";
+import { signout } from "../Reduxfeatures/users";
+import { Link, useNavigate } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -17,6 +18,7 @@ function classNames(...classes) {
 
 export default function Navbar2() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -48,9 +50,9 @@ export default function Navbar2() {
               <div className="hidden sm:ml-6 sm:block ">
                 <div className="flex gap-20 max-md:gap-12 max-[768px]:gap-8  ">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className={classNames(
                         item.current
                           ? "bg-gray-900 text-white"
@@ -60,7 +62,7 @@ export default function Navbar2() {
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -89,31 +91,36 @@ export default function Navbar2() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="/myprofile"
+                          <Link
+                            to="/myprofile"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
 
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/login"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
-                            <button onClick={() => dispatch(signout())}>
+                            <button
+                              onClick={() => {
+                                dispatch(signout());
+                                navigate("/login");
+                              }}
+                            >
                               Sign out
                             </button>
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>

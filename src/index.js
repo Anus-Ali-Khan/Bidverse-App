@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import userReducer from "./Redux features/users";
-import productReducer from "./Redux features/products";
+import userReducer from "./Reduxfeatures/users";
+import productReducer from "./Reduxfeatures/products";
 
 const store = configureStore({
   reducer: {

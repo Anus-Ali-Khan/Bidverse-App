@@ -4,14 +4,15 @@ import Items from "./Items";
 import Navbar2 from "./Navbar2";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../Redux features/products";
+import { getProducts } from "../Reduxfeatures/products";
 
 export default function Products() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => {
     return state.products;
   });
-  console.log("products inn store", allProducts);
+  // console.log("products inn store", allProducts);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -73,20 +74,19 @@ export default function Products() {
         </div>
       </div>
       <div className="Category">
-        <div
-          className="Top-rated cursor-pointer "
-          onClick={() => navigate("/singleproduct")}
-        >
+        <div className="Top-rated cursor-pointer ">
           <h1 className="text-5xl mb-12 mt-20 text-center font-sans font-semibold max-sm:text-4xl">
             Top Auctions
           </h1>
-          <div
-            className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
-            onClick={() => navigate("/singleproduct")}
-          >
-            {allProducts.products.map((product) => (
-              <Items data={product} />
-            ))}
+          <div className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center ">
+            <div
+              className="flex justify-center "
+              onClick={() => navigate("/singleproduct")}
+            >
+              {allProducts.products.map((product) => (
+                <Items data={product} />
+              ))}
+            </div>
           </div>
         </div>
         <div
@@ -97,9 +97,14 @@ export default function Products() {
             All Products
           </h1>
           <div className=" flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
-            {allProducts.products.map((product) => (
-              <Items data={product} />
-            ))}
+            <div
+              className="flex justify-center "
+              onClick={() => navigate("/singleproduct")}
+            >
+              {allProducts.products.map((product) => (
+                <Items data={product} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

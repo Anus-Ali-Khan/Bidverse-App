@@ -50,9 +50,9 @@ const Navbar = () => {
       <div className="hidden sm:block">
         <nav className="flex gap-16 max-lg:gap-12 max-[1024px]:gap-12   ">
           {navLinks.slice(0, 4).map((item) => (
-            <a key={item.name} href={item.href}>
+            <Link key={item.name} to={item.href}>
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
@@ -72,13 +72,13 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="z-10 absolute right-1 top-32 pt-2 pb-3 space-y-1 sm:px-3 bg-black w-full">
             {navLinks.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium "
-                href={item.href}
+                to={item.href}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -6,7 +6,7 @@ import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 // useDispatch to modify the values of state created in redux and get them stored in redux
-import { login } from "../Redux features/users";
+import { login } from "../Reduxfeatures/users";
 import axios from "../api/axios";
 
 const LOGIN_URL = "api/v1/login";
@@ -41,16 +41,17 @@ const Login = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      setEmail("");
-      setPwd("");
+      // setEmail("");
+      // setPwd("");
       // setSuccess(true);
 
       console.log(response?.data);
 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
 
       if (response.data?.success === true) {
-        dispatch(login(response.data.user));
+        dispatch(login(response.data));
         navigate("/");
       }
     } catch (err) {

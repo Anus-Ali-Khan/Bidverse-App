@@ -34,7 +34,7 @@ export const productSlice = createSlice({
     [getProducts.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.products = action.payload.products;
-      console.log("Data from api", action.payload.products);
+      // console.log("Data from api", action.payload.products);
       // console.log("redux data", state.products);
     },
     [getProducts.rejected]: (state, action) => {

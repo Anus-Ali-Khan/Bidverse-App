@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LiaUserCircle } from "react-icons/lia";
 import { BiSolidUser } from "react-icons/bi";
 import { BiPhone } from "react-icons/bi";
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 // useSelector is used to access the new state that is created after dispatch in redux
 
 export default function MyProfile() {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.user);
 
   return (
     <div>
@@ -44,7 +44,8 @@ export default function MyProfile() {
               <input
                 type="number"
                 placeholder="03224455667"
-                value={user.phoneNo}
+                value={user.number}
+                readOnly
                 className="p-2  border rounded-md text-center  border-black"
               />
             </div>

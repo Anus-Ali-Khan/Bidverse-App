@@ -4,8 +4,8 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import CustomInput from "../components/CustomInput";
 import { BiSolidLockAlt, BiSolidUser, BiPhone } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
-import { login } from "../Redux features/users";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../Reduxfeatures/users";
 import { useDispatch } from "react-redux";
 import axios from "../api/axios";
 
@@ -130,9 +130,9 @@ const Signup = () => {
             <div className="flex">
               <p className="underline underline-offset-4">
                 Already have an account?
-                <a href="/login" className="hover:text-orange-400">
+                <Link to="/login" className="hover:text-orange-400">
                   Login
-                </a>
+                </Link>
               </p>
             </div>
           </div>
