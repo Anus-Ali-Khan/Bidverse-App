@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const currentUser = JSON.parse(localStorage.getItem("user"));
-console.log(currentUser);
+// console.log(currentUser);
 
 const initialStateValue = { ...currentUser };
 
@@ -12,6 +12,10 @@ export const userSlice = createSlice({
     login: (state, action) => {
       state.user = action.payload;
       // console.log("action.payload", action.payload);
+      // console.log("user", state.user);
+    },
+    setUser: (state, action) => {
+      state.user = action.payload;
       console.log("user", state.user);
     },
     signout: (state) => {
@@ -20,5 +24,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, signout } = userSlice.actions;
+export const { login, signout, setUser } = userSlice.actions;
 export default userSlice.reducer;

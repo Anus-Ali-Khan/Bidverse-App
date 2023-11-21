@@ -1,40 +1,45 @@
 import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-import axios from "axios";
+import axios from "../api/axios";
+import { IoIosHeart } from "react-icons/io";
 import { useSelector } from "react-redux";
+import { setUser } from "../Reduxfeatures/users";
 
 const FAV_URL = "/api/v1/favourites";
-const jwtToken = localStorage.getItem("token");
 
-const Favouritesicon = () => {
-  const [fav, setFav] = useState(0);
-  const allProducts = useSelector((state) => {
-    return state.products;
-  });
+const currentUser = JSON.parse(localStorage.getItem("user"));
+// console.log(currentUser._id);
+// console.log(currentUser.favourites);
 
-  console.log("products inn store", allProducts);
-
+const Favouritesicon = ({ productId }) => {
+  const user = useSelector((state) => state.user);
   const handleClick = async () => {
     try {
-      const response = await axios.put(
-        FAV_URL,
-        { userId: allProducts.products.userId },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": `${jwtToken}`,
-          },
-        }
-      );
-      return response.data;
+      const response = await axios.put(FAV_URL, {
+        userId: currentUser._id,
+        favourites: [...currentUser.favourites, productId],
+      });
+      console.log(response.data.user.favourites);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      if (response.data?.success === true) {
+        dispatch(setUser(response.data));
+      }
     } catch (error) {
-      return;
+      return error;
     }
   };
 
   return (
     <div>
-      <AiOutlineHeart className="mb-2 h-10 w-6" onClick={handleClick} />
+      <button onClick={handleClick}>
+        { if (user.favourites.find((favourites) => {
+          return favourites === productId;
+        })) 
+          <IoIosHeart className="mb-2 h-10 w-6" style={{ color: "red" }} />
+         (
+          <AiOutlineHeart className="mb-2 h-10 w-6" />
+        )}
+      </button>
     </div>
   );
 };
