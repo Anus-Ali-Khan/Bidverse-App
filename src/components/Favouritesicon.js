@@ -29,7 +29,7 @@ const Favouritesicon = ({ productId }) => {
 
     if (favProds.includes(productId)) {
       const newFavArray = favProds.filter(userFavProducts);
-      // console.log(newFavArray);
+      console.log(newFavArray);
       dispatch(setUser(newFavArray));
     } else {
       const updatedFavArray = newFavArray.push(productId);
