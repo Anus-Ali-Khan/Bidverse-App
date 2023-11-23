@@ -1,8 +1,26 @@
 import React from "react";
 import Navbar2 from "./Navbar2";
 import Modal from "../components/Modal";
+import axios from "../api/axios";
+import { useEffect } from "react";
 
-export default function SingleProduct() {
+const SINGLEPROD_URL = "/api/v1/product";
+
+export default function SingleProduct({ productId }) {
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`${SINGLEPROD_URL}/${productId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": `${jwtToken}`,
+        },
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <div className="bg-slate-200">
       <Navbar2 />
