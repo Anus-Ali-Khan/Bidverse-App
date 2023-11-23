@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../api/axios";
 
 const PROD_URL = "/api/v1/product/";
+
 const initialStateValue = { products: [], isLoading: false, error: null };
 
 const jwtToken = localStorage.getItem("token");

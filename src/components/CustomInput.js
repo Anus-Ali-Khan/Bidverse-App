@@ -7,6 +7,7 @@ const CustomInput = ({
   icon,
   styles,
   required,
+  name,
 }) => {
   return (
     <div className="relative flex flex-col">
@@ -20,6 +21,7 @@ const CustomInput = ({
         placeholder={placeholder}
         className={`p-2  border border-black rounded-md text-center ${styles}`}
         required={required}
+        name={name}
       />
       {icon ?? icon}
     </div>

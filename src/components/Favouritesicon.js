@@ -32,11 +32,10 @@ const Favouritesicon = ({ productId }) => {
       console.log(newFavArray);
       dispatch(setUser(newFavArray));
     } else {
-      const updatedFavArray = newFavArray.push(productId);
+      const updatedFavArray = favProds.push(productId);
       console.log(updatedFavArray);
       dispatch(setUser(updatedFavArray));
     }
-
     try {
       const response = await axios.put(FAV_URL, {
         userId: currentUser._id,

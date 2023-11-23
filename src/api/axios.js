@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const jwtToken = localStorage.getItem("token");
+// console.log(jwtToken);
 
 export default axios.create(
   {
