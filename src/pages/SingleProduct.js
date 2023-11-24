@@ -5,11 +5,12 @@ import axios from "../api/axios";
 import { useEffect } from "react";
 
 const SINGLEPROD_URL = "/api/v1/product";
+const jwtToken = localStorage.getItem("token");
 
 export default function SingleProduct({ productId }) {
-  useEffect(async () => {
+  const getSingleProd = () => {
     try {
-      const response = await axios.get(`${SINGLEPROD_URL}/${productId}`, {
+      const response = axios.get(`${SINGLEPROD_URL}/${productId}`, {
         headers: {
           "Content-Type": "application/json",
           "x-auth-token": `${jwtToken}`,
@@ -19,7 +20,8 @@ export default function SingleProduct({ productId }) {
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  };
+  useEffect(() => getSingleProd(), []);
 
   return (
     <div className="bg-slate-200">
