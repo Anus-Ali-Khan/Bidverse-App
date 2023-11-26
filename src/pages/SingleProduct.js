@@ -8,15 +8,15 @@ const SINGLEPROD_URL = "/api/v1/product";
 const jwtToken = localStorage.getItem("token");
 
 export default function SingleProduct({ productId }) {
-  const getSingleProd = () => {
+  const getSingleProd = async () => {
     try {
-      const response = axios.get(`${SINGLEPROD_URL}/${productId}`, {
+      const response = await axios.get(`${SINGLEPROD_URL}/${productId}`, {
         headers: {
           "Content-Type": "application/json",
           "x-auth-token": `${jwtToken}`,
         },
       });
-      console.log(response);
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }

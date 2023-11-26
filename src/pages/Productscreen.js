@@ -79,12 +79,18 @@ export default function Products() {
             Top Auctions
           </h1>
           <div className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center ">
-            <div
-              className="flex justify-center "
-              onClick={() => navigate("/singleproduct")}
-            >
+            <div className="flex justify-center ">
               {allProducts.products.map((product) => (
-                <Items data={product} />
+                <div
+                  onClick={() =>
+                    navigate("/singleproduct", {
+                      state: product._id,
+                    })
+                  }
+                  className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
+                >
+                  <Items data={product} />
+                </div>
               ))}
             </div>
           </div>

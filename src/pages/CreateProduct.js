@@ -22,7 +22,8 @@ export default function CreateProduct() {
         ADDPROD_URL,
         {
           name: title,
-          image: "../assets/LED.jpg",
+          image:
+            "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftruvison.com%2Fproduct%2Fcornea-full-hd-tv-32%2F&psig=AOvVaw1Y1vjQhZbVr9tcqRmvkXp7&ust=1701069888059000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKipyKSR4YIDFQAAAAAdAAAAABAF",
           price: price,
           endTime: endTime,
           isFeatured: isFeatured,
