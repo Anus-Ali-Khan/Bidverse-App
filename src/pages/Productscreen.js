@@ -79,7 +79,7 @@ export default function Products() {
             Top Auctions
           </h1>
           <div className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center ">
-            <div className="flex justify-center ">
+            <div className="flex justify-center  ">
               {allProducts.products.map((product) => (
                 <div
                   onClick={() =>
@@ -102,9 +102,9 @@ export default function Products() {
           <h1 className="text-5xl mt-20 text-center mb-12 font-sans font-semibold max-sm:text-4xl">
             All Products
           </h1>
-          <div className=" flex flex-wrap justify-around mt-6 gap-8 cursor-pointer ">
+          <div className=" flex justify-around mt-6  cursor-pointer ">
             <div
-              className="flex justify-center "
+              className="flex justify-center flex-wrap gap-8"
               onClick={() => navigate("/singleproduct")}
             >
               {allProducts.products.map((product) => (

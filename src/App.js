@@ -8,6 +8,7 @@ import MyProfile from "./pages/MyProfile";
 import SingleProduct from "./pages/SingleProduct";
 import CreateProduct from "./pages/CreateProduct";
 import "./index.css";
+import UserCreatedProds from "./pages/UserCreatedProds";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/createproduct" element={<CreateProduct />} />
           <Route path="/singleProduct" element={<SingleProduct />} />
+          <Route path="/usercreatedprods" element={<UserCreatedProds />} />
         </Routes>
       </Router>
     </div>

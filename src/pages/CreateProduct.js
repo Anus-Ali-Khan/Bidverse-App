@@ -23,11 +23,12 @@ export default function CreateProduct() {
         {
           name: title,
           image:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftruvison.com%2Fproduct%2Fcornea-full-hd-tv-32%2F&psig=AOvVaw1Y1vjQhZbVr9tcqRmvkXp7&ust=1701069888059000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKipyKSR4YIDFQAAAAAdAAAAABAF",
+            "https://www.sencor.com/getmedia/f58c499b-6cf0-47e3-851b-5f0ef546e565/SLE-55US800TCSB-front.jpg.aspx?width=2100&height=2100&ext=.jpg",
           price: price,
           endTime: endTime,
           isFeatured: isFeatured,
           category: category,
+          description: description,
         },
         {
           headers: {

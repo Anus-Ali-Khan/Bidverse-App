@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { LiaUserCircle } from "react-icons/lia";
 import { BiSolidUser } from "react-icons/bi";
 import { BiPhone } from "react-icons/bi";
 import Navbar2 from "../pages/Navbar2";
 import { BiSolidArrowToRight } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 // useSelector is used to access the new state that is created after dispatch in redux
 
 export default function MyProfile() {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -56,7 +58,10 @@ export default function MyProfile() {
 
           <div className=" flex flex-col justify-center items-center gap-4">
             <div className=" flex justify-center flex-col items-center relative">
-              <button className="p-2 border text-left w-[12rem] bg-slate-300 text-black border-black font-medium rounded-md max-sm:font-normal">
+              <button
+                className="p-2 border text-left w-[12rem] bg-slate-300 text-black border-black font-medium rounded-md max-sm:font-normal"
+                onClick={() => navigate("/usercreatedprods")}
+              >
                 Your Products
               </button>
               <BiSolidArrowToRight className="absolute right-2" />
