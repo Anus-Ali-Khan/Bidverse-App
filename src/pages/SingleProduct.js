@@ -15,10 +15,37 @@ export default function SingleProduct() {
   const [price, setPrice] = useState("");
   const [currentBid, setCurrentBid] = useState("");
   const [endTime, setEndTime] = useState("");
+  const [time, setTime] = useState("");
 
   const location = useLocation();
   const singleProductId = location.state;
   // console.log(singleProductId);
+
+  // console.log(remainingSeconds);
+
+  const updateClock = () => {
+    const date1 = new Date(endTime);
+    const date2 = new Date();
+    const remainingTime = Math.abs(date2 - date1);
+    const remainingSeconds = Math.ceil(remainingTime / 1000);
+    const hours = Math.floor(remainingSeconds / 3600);
+    const minutes = Math.floor((remainingSeconds % 3600) / 60);
+    const seconds = remainingSeconds % 60;
+
+    const hourString = hours > 0 ? `${hours} hour${hours > 1 ? "s" : ""}` : "";
+    const minuteString =
+      minutes > 0 ? `${minutes} minute${minutes > 1 ? "s" : ""}` : "";
+    const secondString =
+      seconds > 0 ? `${seconds} second${seconds > 1 ? "s" : ""}` : "";
+
+    return `${hourString} : ${minuteString} : ${secondString}`;
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTime(updateClock());
+    }, 1000);
+  }, [time]);
 
   const getSingleProd = async () => {
     try {
@@ -29,7 +56,7 @@ export default function SingleProduct() {
         },
       });
       const getData = response.data.product;
-      // console.log(getData);
+      console.log(getData);
       setImage(getData.image);
       setTitle(getData.name);
       setDescription(getData.description);
@@ -81,7 +108,7 @@ export default function SingleProduct() {
                     This Bid has ended
                   </p>
                 ) : (
-                  <p className="text-white max-sm:text-xs"></p>
+                  <p className="text-white max-sm:text-xs">{time}</p>
                 )}
               </div>
             </div>

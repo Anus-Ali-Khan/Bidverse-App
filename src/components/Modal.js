@@ -4,7 +4,7 @@ import axios from "../api/axios";
 
 const UPDATEBIDLIST_URL = "/api/v1/product/updateBidList";
 const currentUserId = JSON.parse(localStorage.getItem("user"));
-// console.log(currentUserId._id);
+// console.log(currentUserId);
 const jwtToken = localStorage.getItem("token");
 
 export default function Modal({ singleProductId }) {
