@@ -19,9 +19,9 @@ const UserCreatedProds = () => {
     <div className="bg-slate-100 h-screen">
       <Navbar2 />
       <div>
-        {allProducts.products === null ? (
+        {allProducts.products.length == 0 ? (
           <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold max-sm:text-4xl ">
-            No Products to display
+            No Products to Display
           </h1>
         ) : (
           <h1 className="text-5xl mt-10 mb-12 font-sans text-center font-semibold max-sm:text-4xl ">
@@ -30,10 +30,7 @@ const UserCreatedProds = () => {
         )}
       </div>
       <div className=" flex justify-around mt-6 m-4 cursor-pointer ">
-        <div
-          className="flex justify-center flex-wrap  gap-8 max-md:gap-14 max-[768px]:gap-14"
-          //   onClick={}
-        >
+        <div className="flex justify-center flex-wrap  gap-8 max-md:gap-14 max-[768px]:gap-14">
           {allProducts.products.map((product, index) => (
             <DeleteItems data={product} key={index} />
           ))}

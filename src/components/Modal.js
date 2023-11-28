@@ -1,10 +1,40 @@
 import React, { useState } from "react";
 import { AiOutlineDollar } from "react-icons/ai";
+import axios from "../api/axios";
 
-export default function Modal() {
+const UPDATEBIDLIST_URL = "/api/v1/product/updateBidList";
+const currentUserId = JSON.parse(localStorage.getItem("user"));
+// console.log(currentUserId._id);
+const jwtToken = localStorage.getItem("token");
+
+export default function Modal({ singleProductId }) {
   const [modal, setModal] = useState(false);
+  const [bidAmount, setBidAmount] = useState("");
   const toggleModal = () => {
     setModal(!modal);
+  };
+  // console.log("singleProductId", singleProductId);
+
+  const handleUpdateBidList = async () => {
+    try {
+      const response = await axios.put(
+        UPDATEBIDLIST_URL,
+        {
+          productId: singleProductId,
+          bidAmount: parseInt(bidAmount),
+          userId: currentUserId._id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": `${jwtToken}`,
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -28,6 +58,8 @@ export default function Modal() {
             <div className="relative">
               <input
                 type="text"
+                value={bidAmount}
+                onChange={(e) => setBidAmount(e.target.value)}
                 placeholder="2648"
                 className="rounded-md p-2 border mt-2 w-[90%] bg-slate-300 border-black pl-[3rem]"
               />
@@ -42,7 +74,7 @@ export default function Modal() {
                 Cancel
               </button>
               <button
-                onClick={toggleModal}
+                onClick={handleUpdateBidList && toggleModal}
                 className="bg-orange-400 text-white w-[100%] p-2 text-lg mt-4 rounded-sm"
               >
                 Done
