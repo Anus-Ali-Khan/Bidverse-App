@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { LiaUserCircle } from "react-icons/lia";
 import { BiSolidUser } from "react-icons/bi";
 import { BiPhone } from "react-icons/bi";
@@ -6,21 +6,63 @@ import Navbar2 from "../pages/Navbar2";
 import { BiSolidArrowToRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { storage } from "../firebaseconfig";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 // useSelector is used to access the new state that is created after dispatch in redux
 
 export default function MyProfile() {
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
+
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = () => {
+    if (image == null) return;
+    const imageRef = ref(storage, `images/${image.name + v4()}`);
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+          })
+          .catch((error) => {
+            console.log(error.message, "error getting the image url");
+          });
+        setImage(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div>
       <Navbar2 />
       <div className=" h-screen flex justify-center  gap-8 mt-12 max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:mt-8">
         <div className="border border-slate-300 w-[40%] h-[70%] flex flex-col gap-4 items-center p-6 rounded-xl max-sm:p-4 max-sm:w-[80%] max-sm:h-[55%] max-sm:mt-[2rem]">
-          <LiaUserCircle className="h-56 w-56 mt-1 max-sm:h-40 max-sm:w-40" />
+          {/* <Avatar alt="Remy Sharp" src={url} sx={{ width: 150, height: 150 }} /> */}
+          <LiaUserCircle
+            src={url}
+            className="h-56 w-56 mt-1 max-sm:h-40 max-sm:w-40"
+          />
           <p className=" underline underline-offset-4 ">{user.email}</p>
-          <input type="file" className=" ml-12 max-md:ml-12 max-sm:ml-20" />
-          <button className="bg-orange-400 text-white w-[60%] p-[0.5rem] text-base mt-4 rounded-lg max-sm:p-1 max-sm:mt-2">
+          <input
+            type="file"
+            onChange={handleImageChange}
+            className=" ml-12 max-md:ml-12 max-sm:ml-20"
+          />
+          <button
+            onClick={handleSubmit}
+            className="bg-orange-400 text-white w-[60%] p-[0.5rem] text-base mt-4 rounded-lg max-sm:p-1 max-sm:mt-2"
+          >
             Upload Image
           </button>
         </div>

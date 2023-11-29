@@ -80,11 +80,11 @@ export default function SingleProduct() {
     <div className="bg-slate-200">
       <Navbar2 />
       <div className="h-screen flex justify-center p-20 gap-16 max-md:p-16 max-md:flex-col max-[768px]:flex-col max-md:items-center max-md:mt-[2rem] max-md:gap-8 max-sm:mt-4 max-sm:gap-6">
-        <div className="bg-white h-fit p-8 max-md:p-4 max-md:w-[80%] max-sm:w-[150%] max-sm:p-2">
+        <div className="bg-white h-fit p-8 max-md:p-4 max-md:w-[80%] max-sm:w-[150%] max-sm:p-2 flex justify-center">
           <img
             src={image}
             alt=""
-            className="h-[25rem] max-lg:h-[20rem] max-md:h-[15rem] max-md:w-[100%]"
+            className="h-[25rem] max-lg:h-[20rem] max-md:h-[15rem] max-md:w-fit"
           />
         </div>
         <div className="flex flex-col gap-6 max-lg:w-[65%] max-md:w-[80%] max-md:gap-4 max-sm:gap-2 max-sm:w-[150%]">

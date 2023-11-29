@@ -31,10 +31,11 @@ export default function Modal({ singleProductId }) {
           },
         }
       );
-      console.log(response.data);
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
+    toggleModal();
   };
 
   return (
@@ -59,7 +60,18 @@ export default function Modal({ singleProductId }) {
               <input
                 type="text"
                 value={bidAmount}
-                onChange={(e) => setBidAmount(e.target.value)}
+                onChange={
+                  (e) => setBidAmount(e.target.value)
+                  // e.target.value >=
+                  //   bidAmounts.amount.forEach((amount) => {
+                  //     let newAmount = amount > e.target.value;
+                  //     return newAmount;
+                  //   })
+                  //   ?
+                  //   bidAmounts.push(amount)
+                  // : bidAmounts
+                  // )
+                }
                 placeholder="2648"
                 className="rounded-md p-2 border mt-2 w-[90%] bg-slate-300 border-black pl-[3rem]"
               />
@@ -74,7 +86,7 @@ export default function Modal({ singleProductId }) {
                 Cancel
               </button>
               <button
-                onClick={handleUpdateBidList && toggleModal}
+                onClick={handleUpdateBidList}
                 className="bg-orange-400 text-white w-[100%] p-2 text-lg mt-4 rounded-sm"
               >
                 Done
