@@ -56,7 +56,7 @@ export default function SingleProduct() {
         },
       });
       const getData = response.data.product;
-      console.log(getData);
+      // console.log(getData);
       setImage(getData.image);
       setTitle(getData.name);
       setDescription(getData.description);

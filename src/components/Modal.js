@@ -10,12 +10,14 @@ const jwtToken = localStorage.getItem("token");
 export default function Modal({ singleProductId }) {
   const [modal, setModal] = useState(false);
   const [bidAmount, setBidAmount] = useState("");
+
   const toggleModal = () => {
     setModal(!modal);
   };
   // console.log("singleProductId", singleProductId);
 
   const handleUpdateBidList = async () => {
+    // if (bidAmounts > bidValue) {
     try {
       const response = await axios.put(
         UPDATEBIDLIST_URL,
@@ -31,10 +33,20 @@ export default function Modal({ singleProductId }) {
           },
         }
       );
-      console.log(response);
+      console.log(response.data.updateProduct.bidAmounts);
+
+      // const bidValue = response.data.updateProduct.bidAmounts.sort((a, b) => {
+      //   return b.amount - a.amount;
+      // });
+      // console.log(bidValue);
     } catch (err) {
       console.log(err);
     }
+    // }
+    // else {
+    // <p>Bid Amount is less than the higher ones</p>;
+    // }
+
     toggleModal();
   };
 
@@ -60,18 +72,7 @@ export default function Modal({ singleProductId }) {
               <input
                 type="text"
                 value={bidAmount}
-                onChange={
-                  (e) => setBidAmount(e.target.value)
-                  // e.target.value >=
-                  //   bidAmounts.amount.forEach((amount) => {
-                  //     let newAmount = amount > e.target.value;
-                  //     return newAmount;
-                  //   })
-                  //   ?
-                  //   bidAmounts.push(amount)
-                  // : bidAmounts
-                  // )
-                }
+                onChange={(e) => setBidAmount(e.target.value)}
                 placeholder="2648"
                 className="rounded-md p-2 border mt-2 w-[90%] bg-slate-300 border-black pl-[3rem]"
               />

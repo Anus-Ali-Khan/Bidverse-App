@@ -36,7 +36,6 @@ export default function MyProfile() {
           .catch((error) => {
             console.log(error.message, "error getting the image url");
           });
-        setImage(null);
       })
       .catch((error) => {
         console.log(error.message);
@@ -48,11 +47,15 @@ export default function MyProfile() {
       <Navbar2 />
       <div className=" h-screen flex justify-center  gap-8 mt-12 max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:mt-8">
         <div className="border border-slate-300 w-[40%] h-[70%] flex flex-col gap-4 items-center p-6 rounded-xl max-sm:p-4 max-sm:w-[80%] max-sm:h-[55%] max-sm:mt-[2rem]">
-          {/* <Avatar alt="Remy Sharp" src={url} sx={{ width: 150, height: 150 }} /> */}
-          <LiaUserCircle
-            src={url}
-            className="h-56 w-56 mt-1 max-sm:h-40 max-sm:w-40"
-          />
+          {image ? (
+            <img
+              src={url}
+              alt="Profilee Pic"
+              className="h-72 w-72 mt-1 max-sm:h-40 max-sm:w-40 border rounded-full "
+            />
+          ) : (
+            <LiaUserCircle className="h-56 w-56 mt-1 max-sm:h-40 max-sm:w-40" />
+          )}
           <p className=" underline underline-offset-4 ">{user.email}</p>
           <input
             type="file"

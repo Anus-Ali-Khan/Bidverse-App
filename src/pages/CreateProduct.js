@@ -3,6 +3,9 @@ import Navbar2 from "../pages/Navbar2";
 import { BiImage } from "react-icons/bi";
 import CustomInput from "../components/CustomInput";
 import axios from "../api/axios";
+import { storage } from "../firebaseconfig";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 
 const ADDPROD_URL = "/api/v1/product/createProduct";
 const jwtToken = localStorage.getItem("token");
@@ -14,6 +17,32 @@ export default function CreateProduct() {
   const [category, setCategory] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
   const [endTime, setEndTime] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
+
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleImageSubmit = () => {
+    if (image == null) return;
+    const imageRef = ref(storage, `images/${image.name + v4()}`);
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+          })
+          .catch((error) => {
+            console.log(error.message, "error getting the image url");
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,8 +51,7 @@ export default function CreateProduct() {
         ADDPROD_URL,
         {
           name: title,
-          image:
-            "https://www.sencor.com/getmedia/f58c499b-6cf0-47e3-851b-5f0ef546e565/SLE-55US800TCSB-front.jpg.aspx?width=2100&height=2100&ext=.jpg",
+          image: url,
           price: price,
           endTime: endTime,
           isFeatured: isFeatured,
@@ -51,10 +79,26 @@ export default function CreateProduct() {
           Add Product
         </p>
         <div className="flex  gap-16 max-sm:flex-col">
-          <div className="border border-slate-300 w-[40%] h-[70%] flex flex-col items-center p-6 rounded-xl max-sm:w-[100%]">
-            <BiImage className="w-[80%] h-[80%]  " />
-            <input type="file" className="max-md:ml-12" />
-            <button className="bg-orange-400 text-white w-[80%] p-2 text-lg mt-4 rounded-lg">
+          <div className="border border-slate-300 w-[50%] h-[70%] flex flex-col items-center p-6 rounded-xl max-sm:w-[100%]">
+            {image ? (
+              <img
+                src={url}
+                alt="Product Image"
+                className="w-[80%] h-[80%] mb-4  "
+              />
+            ) : (
+              <BiImage className="w-[80%] h-[80%]  " />
+            )}
+
+            <input
+              type="file"
+              onChange={handleImageChange}
+              className="max-md:ml-12"
+            />
+            <button
+              onClick={handleImageSubmit}
+              className="bg-orange-400 text-white w-[80%] p-2 text-lg mt-4 rounded-lg"
+            >
               Upload Image
             </button>
           </div>
@@ -95,16 +139,12 @@ export default function CreateProduct() {
                 >
                   <option value="Fashion">Fashion</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="Furniture">Furniture</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Medicines">Medicines</option>
-                  <option value="Inductrial Equipments">
-                    Industrial Equipments
-                  </option>
+                  <option value="Furnitures">Furnitures</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
               <div>
-                <p>Want your bid to be featured ?</p>
+                <p className="mt-1">Want your bid to be featured?</p>
                 <div className="flex items-center gap-2 mb-2 mt-4">
                   <CustomInput
                     type="radio"
