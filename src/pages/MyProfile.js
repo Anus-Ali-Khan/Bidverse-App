@@ -5,11 +5,12 @@ import { BiPhone } from "react-icons/bi";
 import Navbar2 from "../pages/Navbar2";
 import { BiSolidArrowToRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { storage } from "../firebaseconfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import axios from "../api/axios";
+import { setUser } from "../Reduxfeatures/users";
 // useSelector is used to access the new state that is created after dispatch in redux
 
 const UPDATEPROFILE_URL = "/api/v1/updateUser";
@@ -18,6 +19,11 @@ const jwtToken = localStorage.getItem("token");
 export default function MyProfile() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState(null);
+  const dispatch = useDispatch();
+  const imageUrl = useSelector((state) => {
+    return state.user;
+  });
+  // console.log(imageUrl);
 
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -38,6 +44,7 @@ export default function MyProfile() {
         getDownloadURL(imageRef)
           .then((url) => {
             setUrl(url);
+            console.log(url);
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
@@ -67,7 +74,8 @@ export default function MyProfile() {
           },
         }
       );
-      console.log(response.data);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      dispatch(setUser(response.data.user));
     } catch (err) {
       console.log(err);
     }
@@ -81,6 +89,12 @@ export default function MyProfile() {
           {image ? (
             <img
               src={url}
+              alt="Profile Pic"
+              className="h-72 w-72 mt-1 max-sm:h-40 max-sm:w-40 border rounded-full "
+            />
+          ) : imageUrl.image ? (
+            <img
+              src={imageUrl.image}
               alt="Profilee Pic"
               className="h-72 w-72 mt-1 max-sm:h-40 max-sm:w-40 border rounded-full "
             />
