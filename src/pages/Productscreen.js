@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PRODUCTS } from "../data/data";
+// import { PRODUCTS } from "../data/data";
 import Items from "./Items";
 import Navbar2 from "./Navbar2";
 import { useNavigate } from "react-router-dom";
@@ -84,7 +84,7 @@ export default function Products() {
                 <div
                   onClick={() =>
                     navigate("/singleproduct", {
-                      state: product._id,
+                      state: product,
                     })
                   }
                   className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
@@ -95,20 +95,23 @@ export default function Products() {
             </div>
           </div>
         </div>
-        <div
-          className="All-products cursor-pointer"
-          onClick={() => navigate("/singleproduct")}
-        >
+        <div className="All-products cursor-pointer">
           <h1 className="text-5xl mt-20 text-center mb-12 font-sans font-semibold max-sm:text-4xl">
             All Products
           </h1>
           <div className=" flex justify-around mt-6 m-4 cursor-pointer ">
-            <div
-              className="flex justify-center flex-wrap  gap-8 max-md:gap-14 max-[768px]:gap-14"
-              onClick={() => navigate("/singleproduct")}
-            >
+            <div className="flex justify-center flex-wrap  gap-8 max-md:gap-14 max-[768px]:gap-14">
               {allProducts.products.map((product, index) => (
-                <Items data={product} key={index} />
+                <div
+                  onClick={() =>
+                    navigate("/singleproduct", {
+                      state: product._id,
+                    })
+                  }
+                  className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
+                >
+                  <Items data={product} key={index} />
+                </div>
               ))}
             </div>
           </div>

@@ -9,7 +9,11 @@ import { useSelector } from "react-redux";
 import { storage } from "../firebaseconfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+import axios from "../api/axios";
 // useSelector is used to access the new state that is created after dispatch in redux
+
+const UPDATEPROFILE_URL = "/api/v1/updateUser";
+const jwtToken = localStorage.getItem("token");
 
 export default function MyProfile() {
   const [image, setImage] = useState(null);
@@ -23,6 +27,8 @@ export default function MyProfile() {
       setImage(e.target.files[0]);
     }
   };
+
+  // Image Store in Firebase
 
   const handleSubmit = () => {
     if (image == null) return;
@@ -40,6 +46,31 @@ export default function MyProfile() {
       .catch((error) => {
         console.log(error.message);
       });
+  };
+
+  // User Update API Calling
+
+  const handleClick = async () => {
+    try {
+      const response = await axios.put(
+        UPDATEPROFILE_URL,
+        {
+          userId: user._id,
+          name: user.name,
+          number: user.number,
+          image: url,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": `${jwtToken}`,
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -96,7 +127,10 @@ export default function MyProfile() {
                 className="p-2  border rounded-md text-center  border-black"
               />
             </div>
-            <button className="p-2 w-[12rem] mt-6 text-white border-black font-medium rounded-md bg-orange-400 max-sm:mt-2 max-sm:p-1 max-sm:font-normal">
+            <button
+              onClick={handleClick}
+              className="p-2 w-[12rem] mt-6 text-white border-black font-medium rounded-md bg-orange-400 max-sm:mt-2 max-sm:p-1 max-sm:font-normal"
+            >
               Update Profile
             </button>
           </div>

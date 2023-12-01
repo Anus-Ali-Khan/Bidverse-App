@@ -7,9 +7,10 @@ const currentUserId = JSON.parse(localStorage.getItem("user"));
 // console.log(currentUserId);
 const jwtToken = localStorage.getItem("token");
 
-export default function Modal({ singleProductId }) {
+export default function Modal({ singleProduct }) {
   const [modal, setModal] = useState(false);
   const [bidAmount, setBidAmount] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
@@ -17,37 +18,35 @@ export default function Modal({ singleProductId }) {
   // console.log("singleProductId", singleProductId);
 
   const handleUpdateBidList = async () => {
-    // if (bidAmounts > bidValue) {
-    try {
-      const response = await axios.put(
-        UPDATEBIDLIST_URL,
-        {
-          productId: singleProductId,
-          bidAmount: parseInt(bidAmount),
-          userId: currentUserId._id,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": `${jwtToken}`,
+    const bidValue = singleProduct.bidAmounts.sort((a, b) => {
+      return b.amount - a.amount;
+    });
+
+    if (bidValue[0].amount < bidAmount) {
+      try {
+        const response = await axios.put(
+          UPDATEBIDLIST_URL,
+          {
+            productId: singleProduct._id,
+            bidAmount: parseInt(bidAmount),
+            userId: currentUserId._id,
           },
-        }
-      );
-      console.log(response.data.updateProduct.bidAmounts);
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "x-auth-token": `${jwtToken}`,
+            },
+          }
+        );
 
-      // const bidValue = response.data.updateProduct.bidAmounts.sort((a, b) => {
-      //   return b.amount - a.amount;
-      // });
-      // console.log(bidValue);
-    } catch (err) {
-      console.log(err);
+        setErrMsg("");
+      } catch (err) {
+        console.log(err);
+      }
+      toggleModal();
+    } else {
+      setErrMsg("Bid amount is smaller");
     }
-    // }
-    // else {
-    // <p>Bid Amount is less than the higher ones</p>;
-    // }
-
-    toggleModal();
   };
 
   return (
@@ -76,6 +75,7 @@ export default function Modal({ singleProductId }) {
                 placeholder="2648"
                 className="rounded-md p-2 border mt-2 w-[90%] bg-slate-300 border-black pl-[3rem]"
               />
+              <p className="text-red-500">{errMsg}</p>
               <AiOutlineDollar className="h-6 w-6 text-black absolute top-[1.1rem] left-[1rem]" />
             </div>
 

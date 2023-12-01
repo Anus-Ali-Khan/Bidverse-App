@@ -18,43 +18,48 @@ export default function SingleProduct() {
   const [time, setTime] = useState("");
 
   const location = useLocation();
-  const singleProductId = location.state;
-  // console.log(singleProductId);
+  const singleProduct = location.state;
+  // console.log(singleProduct);
 
   // console.log(remainingSeconds);
 
   const updateClock = () => {
     const date1 = new Date(endTime);
     const date2 = new Date();
-    const remainingTime = Math.abs(date2 - date1);
+    const remainingTime = Math.abs(date1 - date2);
     const remainingSeconds = Math.ceil(remainingTime / 1000);
     const hours = Math.floor(remainingSeconds / 3600);
     const minutes = Math.floor((remainingSeconds % 3600) / 60);
     const seconds = remainingSeconds % 60;
 
-    const hourString = hours > 0 ? `${hours} hour${hours > 1 ? "s" : ""}` : "";
+    const hourString = hours > 0 ? `${hours} hr${hours > 1 ? "s" : ""}` : "";
     const minuteString =
-      minutes > 0 ? `${minutes} minute${minutes > 1 ? "s" : ""}` : "";
+      minutes > 0 ? `${minutes} min${minutes > 1 ? "s" : ""}` : "";
     const secondString =
-      seconds > 0 ? `${seconds} second${seconds > 1 ? "s" : ""}` : "";
+      seconds > 0 ? `${seconds} sec${seconds > 1 ? "s" : ""}` : "";
 
     return `${hourString} : ${minuteString} : ${secondString}`;
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setTime(updateClock());
-    }, 1000);
-  }, [time]);
+    if (new Date(endTime) > new Date()) {
+      setTimeout(() => {
+        setTime(updateClock());
+      }, 1000);
+    }
+  }, [time, endTime]);
 
   const getSingleProd = async () => {
     try {
-      const response = await axios.get(`${SINGLEPROD_URL}/${singleProductId}`, {
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": `${jwtToken}`,
-        },
-      });
+      const response = await axios.get(
+        `${SINGLEPROD_URL}/${singleProduct._id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": `${jwtToken}`,
+          },
+        }
+      );
       const getData = response.data.product;
       // console.log(getData);
       setImage(getData.image);
@@ -103,7 +108,7 @@ export default function SingleProduct() {
               </div>
               <div>
                 <p className="mt-4 text-lg max-sm:text-sm">Remaining Time</p>
-                {endTime >= new Date() ? (
+                {new Date(endTime) <= new Date() ? (
                   <p className="text-white max-sm:text-xs">
                     This Bid has ended
                   </p>
@@ -112,7 +117,7 @@ export default function SingleProduct() {
                 )}
               </div>
             </div>
-            <Modal singleProductId={singleProductId} />
+            <Modal singleProduct={singleProduct} />
           </div>
         </div>
       </div>
