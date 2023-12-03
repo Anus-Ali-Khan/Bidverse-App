@@ -19,6 +19,8 @@ const jwtToken = localStorage.getItem("token");
 export default function MyProfile() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState(null);
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
   const dispatch = useDispatch();
   const imageUrl = useSelector((state) => {
     return state.user;
@@ -44,7 +46,6 @@ export default function MyProfile() {
         getDownloadURL(imageRef)
           .then((url) => {
             setUrl(url);
-            console.log(url);
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
@@ -63,8 +64,8 @@ export default function MyProfile() {
         UPDATEPROFILE_URL,
         {
           userId: user._id,
-          name: user.name,
-          number: user.number,
+          name: name,
+          number: number,
           image: url,
         },
         {
@@ -74,6 +75,7 @@ export default function MyProfile() {
           },
         }
       );
+      console.log(response.data);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       dispatch(setUser(response.data.user));
     } catch (err) {
@@ -124,7 +126,8 @@ export default function MyProfile() {
               <input
                 type="text"
                 placeholder="Anus Ali Khan"
-                value={user.name}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="p-2 border border-black rounded-md text-center"
               />
             </div>
@@ -136,8 +139,8 @@ export default function MyProfile() {
               <input
                 type="number"
                 placeholder="03224455667"
-                value={user.number}
-                readOnly
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
                 className="p-2  border rounded-md text-center  border-black"
               />
             </div>
