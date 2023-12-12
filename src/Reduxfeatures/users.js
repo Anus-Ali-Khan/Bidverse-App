@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const currentUser = JSON.parse(localStorage.getItem("user"));
-// console.log(currentUser);
+console.log(currentUser, "INSIDE RED");
 
 const initialStateValue = { ...currentUser };
 
@@ -10,12 +10,13 @@ export const userSlice = createSlice({
   initialState: initialStateValue,
   reducers: {
     login: (state, action) => {
-      state.user = action.payload;
+      state = action.payload;
       // console.log("action.payload", action.payload);
       // console.log("user", state.user);
     },
     setUser: (state, action) => {
-      state.user = action.payload;
+      console.log("inside reducer", action.payload);
+      state = action.payload;
       // console.log("user", state.user);
     },
     signout: (state) => {

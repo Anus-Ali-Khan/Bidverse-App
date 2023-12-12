@@ -82,11 +82,11 @@ export default function Products() {
             <div className="flex justify-center flex-wrap gap-8 max-md:gap-14 max-[768px]:gap-14">
               {allProducts.products.map((product, index) => (
                 <div
-                  onClick={() =>
-                    navigate("/singleproduct", {
-                      state: product,
-                    })
-                  }
+                  // onClick={() =>
+                  //   navigate("/singleproduct", {
+                  //     state: product,
+                  //   })
+                  // }
                   className=" flex flex-wrap justify-around mt-6 gap-8 max-sm:flex-col max-sm:items-center "
                 >
                   <Items data={product} key={index} />

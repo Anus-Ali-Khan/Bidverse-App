@@ -22,29 +22,29 @@ const Favouritesicon = ({ productId }) => {
     //   })
     // )}
 
+    console.log("User from redux", user);
+
     const favProds = user.favourites;
     function userFavProducts(favProd) {
       return favProd !== productId;
     }
-
+    console.log(favProds, productId);
+    let newFavArray = [];
     if (favProds.includes(productId)) {
-      const newFavArray = favProds.filter(userFavProducts);
-      console.log(newFavArray);
-      dispatch(setUser(newFavArray));
+      newFavArray = favProds.filter(userFavProducts);
     } else {
-      const updatedFavArray = favProds.push(productId);
-      console.log(updatedFavArray);
-      dispatch(setUser(updatedFavArray));
+      newFavArray = [...favProds, productId];
     }
+    console.log("newFavArray", newFavArray);
     try {
       const response = await axios.put(FAV_URL, {
         userId: currentUser._id,
-        favourites: [...currentUser.favourites, productId],
+        favourites: newFavArray,
       });
-      console.log(response.data.user.favourites);
+      console.log("API res", response.data);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       if (response.data?.success === true) {
-        dispatch(setUser(response.data));
+        dispatch(setUser(response.data.user));
       }
     } catch (error) {
       return error;
