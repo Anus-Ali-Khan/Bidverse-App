@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-:root {
+.b-style {
     --light-grey: #f6f9fc;
     --dark-terminal-color: #0a2540;
     --accent-color: #635bff;
@@ -39,10 +39,10 @@ label {
     display: block;
 }
 
-a {
+/* a {
     color: var(--accent-color);
     font-weight: 900;
-}
+} */
 
 small {
     font-size: 0.6em;
@@ -54,7 +54,7 @@ select {
     border: 1px solid #efefef;
 }
 
-#payment-form {
+.payment-form {
     border: #f6f9fc solid 1px;
     border-radius: var(--radius);
     padding: 20px;

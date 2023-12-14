@@ -3,6 +3,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 
+const CLIENT_SECRET =
+  "sk_test_51OJHUvFAZxfMQMfLG48qWFSUUP5o8SgdeliteflK9utaBInqtB1RhGIPdzc9PSgWym48VwzC3ZRKZb1UYFiRmiXj00mZsG9dw0";
+
 const PaymentStripe = () => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
@@ -30,9 +33,11 @@ const PaymentStripe = () => {
 
   return (
     <div>
-      <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm />
-      </Elements>
+      {stripePromise && clientSecret && (
+        <Elements stripe={stripePromise} options={options}>
+          <CheckoutForm />
+        </Elements>
+      )}
     </div>
   );
 };
