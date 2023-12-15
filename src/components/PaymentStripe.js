@@ -3,9 +3,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 
-const CLIENT_SECRET =
-  "sk_test_51OJHUvFAZxfMQMfLG48qWFSUUP5o8SgdeliteflK9utaBInqtB1RhGIPdzc9PSgWym48VwzC3ZRKZb1UYFiRmiXj00mZsG9dw0";
-
 const PaymentStripe = () => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
@@ -25,7 +22,7 @@ const PaymentStripe = () => {
   const options = {
     mode: "payment",
     currency: "usd",
-    amount: 1099,
+    amount: 1,
     automatic_payment_methods: {
       enabled: true,
     },
