@@ -12,24 +12,24 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !elements) {
-      return;
-    }
+    // if (!stripe || !elements) {
+    //   return;
+    // }
 
-    setIsProcessing(true);
+    // setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${window.GeolocationPosition.origin}/completion`,
-      },
-    });
+    // const { error } = await stripe.confirmPayment({
+    //   elements,
+    //   confirmParams: {
+    //     return_url: `${window.GeolocationPosition.origin}/completion`,
+    //   },
+    // });
 
-    if (error) {
-      setMessage(error.message);
-    }
+    // if (error) {
+    //   setMessage(error.message);
+    // }
 
-    setIsProcessing(false);
+    // setIsProcessing(false);
   };
 
   return (

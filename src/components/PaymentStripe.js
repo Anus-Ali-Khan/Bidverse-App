@@ -23,9 +23,9 @@ const PaymentStripe = () => {
     mode: "payment",
     currency: "usd",
     amount: 1,
-    automatic_payment_methods: {
-      enabled: true,
-    },
+    // automatic_payment_methods: {
+    //   enabled: true,
+    // },
   };
 
   return (
