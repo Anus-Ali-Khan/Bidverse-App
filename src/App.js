@@ -9,7 +9,6 @@ import SingleProduct from "./pages/SingleProduct";
 import CreateProduct from "./pages/CreateProduct";
 import "./index.css";
 import UserCreatedProds from "./pages/UserCreatedProds";
-import PaymentCompletion from "./components/PaymentCompletion";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
           <Route path="/createproduct" element={<CreateProduct />} />
           <Route path="/singleProduct" element={<SingleProduct />} />
           <Route path="/usercreatedprods" element={<UserCreatedProds />} />
-          <Route path="/paymentcompletion" element={<PaymentCompletion />} />
         </Routes>
       </Router>
     </div>

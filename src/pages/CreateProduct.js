@@ -6,7 +6,7 @@ import axios from "../api/axios";
 import { storage } from "../firebaseconfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
-import PaymentStripe from "../components/PaymentStripe";
+import PayPal from "../components/PayPal";
 
 const ADDPROD_URL = "/api/v1/product/createProduct";
 const jwtToken = localStorage.getItem("token");
@@ -176,7 +176,7 @@ export default function CreateProduct() {
                 Add Product
               </button>
             </form>
-            <PaymentStripe />
+            <PayPal />
           </div>
         </div>
       </div>
