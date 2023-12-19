@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const currentUser = JSON.parse(localStorage.getItem("user"));
-console.log(currentUser, "INSIDE RED");
+console.log(currentUser, "INSIDE Storage");
 
 const initialStateValue = { ...currentUser };
+console.log("initialStateValue", initialStateValue);
 
 export const userSlice = createSlice({
   name: "user",
@@ -17,7 +18,7 @@ export const userSlice = createSlice({
     setUser: (state, action) => {
       console.log("inside reducer", action.payload);
       state = action.payload;
-      // console.log("user", state.user);
+      console.log("user", state);
     },
     signout: (state) => {
       state.value = localStorage.clear();

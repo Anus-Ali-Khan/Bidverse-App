@@ -56,6 +56,7 @@ const Favouritesicon = ({ productId }) => {
       <button onClick={handleClick}>
         <AiOutlineHeart className="mb-2 h-10 w-6" />
       </button>
+      {user.favourites.join(", ")}
     </div>
   );
 };
